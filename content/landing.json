@@ -1,0 +1,222 @@
+{
+  "product_id": "6aa448e0568e83312533aa1d",
+  "hero": {
+    "badge": "Plataforma de e-commerce headless, feita para a operação brasileira",
+    "title": "Sua loja cresceu. Sua plataforma acompanhou?",
+    "subtitle": "A e‑com.plus é uma plataforma headless e API-first para lojas que já venderam o suficiente para sentir os limites de plataformas de entrada como wBuy, Nuvemshop, Tray ou Loja Integrada: sem comissão sobre o faturamento, checkout próprio e suporte direto com quem desenvolve.",
+    "cta": "Assinar agora",
+    "note": "Cartão de crédito ou boleto. Sem frete: o acesso chega no seu e-mail."
+  },
+  "benefits": {
+    "title": "O que você leva no plano",
+    "items": [
+      {
+        "icon": "wifi",
+        "title": "Headless e API-first",
+        "text": "Toda a operação exposta por APIs REST documentadas. Use o storefront pronto ou construa a frente de loja que quiser."
+      },
+      {
+        "icon": "credit-card",
+        "title": "Checkout completo",
+        "text": "Pix, cartão, boleto e parcelamento com os principais gateways do Brasil, sem redirecionar o cliente para fora da loja."
+      },
+      {
+        "icon": "store",
+        "title": "Apps e integrações",
+        "text": "ERPs, transportadoras, marketplaces e ferramentas de marketing instalados em poucos cliques na loja de aplicativos."
+      },
+      {
+        "icon": "stopwatch",
+        "title": "Performance de verdade",
+        "text": "Storefront PWA renderizado no servidor e servido por CDN. Páginas leves, boas notas no Lighthouse e melhor conversão."
+      },
+      {
+        "icon": "shield",
+        "title": "Segurança e escala",
+        "text": "Infraestrutura em nuvem gerenciada, backups e monitoramento. A loja aguenta a Black Friday sem você se preocupar."
+      },
+      {
+        "icon": "user",
+        "title": "Suporte de quem faz",
+        "text": "Atendimento direto com o time que desenvolve a plataforma, em português, sem scripts de call center."
+      }
+    ]
+  },
+  "steps": {
+    "title": "Contratar leva três passos",
+    "items": [
+      {
+        "title": "Identifique-se",
+        "text": "Nome, e-mail, CPF ou CNPJ, telefone e endereço de cobrança: só CEP e número, o resto preenche sozinho."
+      },
+      {
+        "title": "Escolha o pagamento",
+        "text": "Cartão de crédito ou boleto bancário, processados pela Vindi em ambiente seguro."
+      },
+      {
+        "title": "Receba o acesso",
+        "text": "Em até 1 dia útil após a confirmação do pagamento, enviamos por e-mail as instruções para ativar sua loja."
+      }
+    ]
+  },
+  "checkout": {
+    "title": "Assine agora",
+    "subtitle": "Confira o plano e clique em assinar: você vai direto para o checkout, sem reunião, sem proposta, sem espera."
+  },
+  "faq": {
+    "title": "Perguntas frequentes",
+    "items": [
+      {
+        "question": "Por que pedimos um endereço?",
+        "answer": "Nada é enviado pelos correios. O endereço entra apenas no cadastro e na cobrança do plano. Basta informar CEP e número, o restante é preenchido automaticamente."
+      },
+      {
+        "question": "Já tenho loja em outra plataforma. Como funciona a migração?",
+        "answer": "Depois do pagamento você recebe o acesso e o passo a passo por e-mail. Produtos, clientes e pedidos podem ser importados por planilha ou pela API, e o nosso time técnico acompanha a migração."
+      },
+      {
+        "question": "Quais formas de pagamento são aceitas?",
+        "answer": "Cartão de crédito e boleto bancário, processados pela Vindi. Os dados do cartão são criptografados no seu navegador e nunca passam pelos nossos servidores."
+      },
+      {
+        "question": "Em quanto tempo recebo o acesso?",
+        "answer": "Pagamentos por cartão são confirmados em minutos e boletos costumam compensar em até 2 dias úteis. Depois da confirmação do pagamento, o acesso é liberado por e-mail em até 1 dia útil."
+      },
+      {
+        "question": "Posso tirar dúvidas antes de assinar?",
+        "answer": "Claro. Fale com o nosso time pelo WhatsApp ou e-mail informados no rodapé desta página."
+      },
+      {
+        "question": "Existe fidelidade ou multa?",
+        "answer": "Não. A cobrança é do plano contratado, sem comissão sobre as vendas e sem fidelidade."
+      }
+    ]
+  },
+  "footer": {
+    "links": [
+      {
+        "label": "e-com.plus",
+        "href": "https://www.e-com.plus/"
+      },
+      {
+        "label": "Documentação",
+        "href": "https://developers.e-com.plus/"
+      },
+      {
+        "label": "Termos de uso",
+        "href": "https://www.e-com.plus/termos-de-uso"
+      }
+    ],
+    "credits": "© E-Com Club Softwares para E-Commerce - CNPJ 24.356.660/0001-78"
+  },
+  "proof": {
+    "items": [
+      {
+        "icon": "percent",
+        "title": "Zero comissão",
+        "text": "Nenhuma taxa sobre o faturamento, com qualquer meio de pagamento."
+      },
+      {
+        "icon": "credit-card",
+        "title": "Checkout próprio",
+        "text": "Pix, boleto, cartão e nota fiscal nativos, sem app de terceiro."
+      },
+      {
+        "icon": "user",
+        "title": "Suporte técnico direto",
+        "text": "Fala com quem desenvolve a plataforma, em todos os planos."
+      },
+      {
+        "icon": "wifi",
+        "title": "API-first",
+        "text": "Toda a operação exposta por API. Integre o que quiser, do jeito que quiser."
+      }
+    ]
+  },
+  "spin": {
+    "title": "Você reconhece essa história?",
+    "subtitle": "Quem chega na e‑com.plus normalmente já passou por uma plataforma de entrada. O caminho costuma ser o mesmo.",
+    "items": [
+      {
+        "label": "Situação",
+        "title": "A loja está no ar e vendendo",
+        "text": "Você montou a operação em uma plataforma pronta, instalou tema, apps, gateway e transportadoras. Funcionou, e o faturamento subiu."
+      },
+      {
+        "label": "Problema",
+        "title": "Mas cada mês cobra mais caro",
+        "text": "Comissão sobre cada pedido, app pago para cupom, brinde ou compre junto, checkout que redireciona, tema igual ao do concorrente e suporte que responde com FAQ."
+      },
+      {
+        "label": "Implicação",
+        "title": "O crescimento vira custo e trava",
+        "text": "Quanto mais você vende, mais paga em comissão. Em datas de pico a loja cai ou fica lenta. Personalizar depende de plano superior ou de gambiarra. A margem some e a marca não se diferencia."
+      },
+      {
+        "label": "Solução",
+        "title": "Uma plataforma que escala junto com você",
+        "text": "Na e‑com.plus o custo é o plano, não uma fatia das vendas. O checkout é seu, a frente de loja é sua, a API é aberta e o suporte é com o time técnico. Você cresce sem trocar de plataforma de novo."
+      }
+    ]
+  },
+  "comparison": {
+    "title": "e‑com.plus x wBuy",
+    "subtitle": "O que muda na prática para quem vende na wBuy e quer o próximo passo. Os mesmos critérios que usamos para comparar plataformas de entrada.",
+    "columns": [
+      "Na e‑com.plus",
+      "Na wBuy"
+    ],
+    "rows": [
+      {
+        "label": "Comissionamento",
+        "plus": "Sem comissão sobre vendas, independentemente do meio de pagamento utilizado.",
+        "others": "Comissão de 1,5% a 0,7% por venda conforme o plano, além da mensalidade. Só zera usando o wBuy Pay."
+      },
+      {
+        "label": "Meios de pagamento",
+        "plus": "Liberdade para usar o gateway ou adquirente que quiser, com Pix, boleto e cartão nativos e sem penalidade.",
+        "others": "A isenção da comissão fica presa ao adquirente da própria plataforma (cartão a partir de 3,99% + R$ 0,50 e Pix a partir de 0,79%)."
+      },
+      {
+        "label": "Limites do plano",
+        "plus": "Produtos, usuários e pedidos sem teto por plano: a plataforma cresce junto com a operação.",
+        "others": "Cada plano define o limite de produtos (200, 500, 1.000 ou 5.000) e de usuários administradores."
+      },
+      {
+        "label": "Aplicativos e recursos",
+        "plus": "Cupons, compre junto, brindes, fidelidade, avaliações e e-mail marketing nativos na plataforma.",
+        "others": "Boa parte dos recursos vem de um marketplace com mais de 200 apps, muitos pagos à parte, e temas premium vendidos separadamente."
+      },
+      {
+        "label": "Suporte técnico",
+        "plus": "Direto com a equipe técnica da plataforma, com SLA superior garantido em todos os planos.",
+        "others": "Chat de segunda a sábado; WhatsApp e SLA de 2 horas só a partir do plano Elite."
+      },
+      {
+        "label": "Personalização",
+        "plus": "Arquitetura headless com controle total sobre layout, código e integrações, possibilitando experiências únicas.",
+        "others": "Temas prontos ajustados pelo painel; mudanças mais profundas exigem desenvolvedor especializado no ecossistema da wBuy."
+      },
+      {
+        "label": "Flexibilidade",
+        "plus": "Plataforma API-first: toda a operação exposta por API, permitindo integrações personalizadas e total adaptação.",
+        "others": "API disponível, mas a loja gira em torno do painel e dos apps do marketplace."
+      },
+      {
+        "label": "Rastreamento de dados",
+        "plus": "DataLayer completo e todos os eventos detalhados para GA4, garantindo dados precisos e campanhas mais eficientes.",
+        "others": "Rastreamento Google e Facebook padrão da plataforma; ajustes finos dependem de app ou de tema."
+      },
+      {
+        "label": "SEO",
+        "plus": "Estrutura SEO avançada, URLs amigáveis, controle de metadados e bom desempenho.",
+        "others": "SEO nativo e blog integrado, dentro do que o tema escolhido permite."
+      },
+      {
+        "label": "Performance e estabilidade",
+        "plus": "Arquitetura serverless com CDN e Web Vitals otimizados, estável mesmo em grandes picos de acesso.",
+        "others": "Hospedagem AWS com escalabilidade sob demanda, dentro dos limites do plano contratado."
+      }
+    ]
+  }
+}

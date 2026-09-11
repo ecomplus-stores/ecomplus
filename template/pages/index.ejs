@@ -1,1 +1,332 @@
-<%- await include('@/view') %>
+<%
+/*
+ * Landing page de página única com o bloco de produto padrão do storefront.
+ * Conteúdo editável em `content/landing.json`. O botão de comprar adiciona o
+ * plano ao carrinho e redireciona para /app/#/checkout
+ * (ver template/js/custom-js/pages.js).
+ */
+const landing = _.cms('landing') || {}
+const contacts = _.cms('contacts') || {}
+const hero = landing.hero || {}
+const proof = landing.proof || {}
+const spin = landing.spin || {}
+const comparison = landing.comparison || {}
+const benefits = landing.benefits || {}
+const steps = landing.steps || {}
+const checkout = landing.checkout || {}
+const faq = landing.faq || {}
+const footer = landing.footer || {}
+const whatsapp = (contacts.whatsapp || '').replace(/\D/g, '')
+
+// produto (plano) vendido na página, carregado da Store API na renderização
+let product = null
+if (landing.product_id) {
+  try {
+    const { data } = await _.ecomClient.store({
+      url: `/products/${landing.product_id}.json`,
+      axiosConfig: { timeout: 10000 }
+    })
+    product = data
+  } catch (err) {
+    console.error(`[landing] falha ao carregar o produto ${landing.product_id}`, err.message)
+  }
+}
+%>
+
+<!doctype html>
+<html lang="<%= _.lang.replace('_', '-') %>" dir="ltr">
+
+<head>
+  <%- await include('@/head') %>
+  <%# fontes de título da identidade e-com.plus (Urbanist vem de settings.font_family) %>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@1,500&family=Fira+Sans:ital,wght@1,500&display=swap">
+</head>
+
+<body
+  id="page-home"
+  class="lp"
+  <% if (product) { %>
+    data-resource="products"
+    data-resource-id="<%= product._id %>"
+  <% } %>
+>
+  <%# elemento exigido pelo bundle do storefront (lib/overlay.js) %>
+  <div id="overlay" class="fade"></div>
+
+  <header class="lp__hero">
+    <div class="container">
+      <div class="lp__brand">
+        <a href="/" aria-label="<%= _.settings.name || _.store.name %>">
+          <%- await include('@/layout/inc/logo-white') %>
+        </a>
+        <span class="lp__safe">
+          <i class="i-shield"></i>
+          <%= _.dictionary('safeEnvMsg') %>
+        </span>
+      </div>
+
+      <div class="lp__hero-content">
+        <% if (hero.badge) { %>
+          <span class="lp__badge"><%= hero.badge %></span>
+        <% } %>
+        <h1 class="lp__title"><%= hero.title || _.settings.name %></h1>
+        <% if (hero.subtitle) { %>
+          <p class="lp__subtitle"><%= hero.subtitle %></p>
+        <% } %>
+        <a
+          href="#assinar"
+          class="lp__btn lp__btn--contrast lp__btn--lg"
+          data-scroll-to="assinar"
+        >
+          <%= hero.cta || 'Assinar agora' %>
+          <i class="i-chevron-down ml-1"></i>
+        </a>
+        <% if (hero.note) { %>
+          <p class="lp__note"><%= hero.note %></p>
+        <% } %>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <% if (Array.isArray(proof.items) && proof.items.length) { %>
+      <section class="lp__proof">
+        <div class="container">
+          <div class="row">
+            <% proof.items.forEach(item => { %>
+              <div class="col-6 col-lg-3 mb-3 mb-lg-0">
+                <div class="lp__proof-item">
+                  <% if (item.icon) { %>
+                    <i class="i-<%= item.icon %>"></i>
+                  <% } %>
+                  <strong><%= item.title %></strong>
+                  <span><%= item.text %></span>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+        </div>
+      </section>
+    <% } %>
+
+    <% if (Array.isArray(spin.items) && spin.items.length) { %>
+      <section class="lp__section lp__spin">
+        <div class="container">
+          <% if (spin.title) { %>
+            <h2 class="lp__section-title"><%= spin.title %></h2>
+          <% } %>
+          <% if (spin.subtitle) { %>
+            <p class="lp__section-subtitle"><%= spin.subtitle %></p>
+          <% } %>
+          <ol class="lp__spin-list">
+            <% spin.items.forEach((item, i) => { %>
+              <li class="lp__spin-item" <%= i === spin.items.length - 1 ? 'data-solution' : '' %>>
+                <span class="lp__spin-label"><%= item.label %></span>
+                <h3 class="lp__spin-title"><%= item.title %></h3>
+                <p class="lp__spin-text"><%= item.text %></p>
+              </li>
+            <% }) %>
+          </ol>
+        </div>
+      </section>
+    <% } %>
+
+    <% if (Array.isArray(comparison.rows) && comparison.rows.length) { %>
+      <section class="lp__section lp__comparison">
+        <div class="container">
+          <% if (comparison.title) { %>
+            <h2 class="lp__section-title"><%= comparison.title %></h2>
+          <% } %>
+          <% if (comparison.subtitle) { %>
+            <p class="lp__section-subtitle"><%= comparison.subtitle %></p>
+          <% } %>
+          <% const cols = comparison.columns || ['e-com.plus', 'Outras plataformas'] %>
+          <div class="lp__table-wrap">
+            <table class="lp__table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th class="lp__table-plus"><%= cols[0] %></th>
+                  <th><%= cols[1] %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% comparison.rows.forEach(row => { %>
+                  <tr>
+                    <th scope="row"><%= row.label %></th>
+                    <td class="lp__table-plus">
+                      <i class="i-check-circle"></i>
+                      <span><%= row.plus %></span>
+                    </td>
+                    <td>
+                      <i class="i-times-circle"></i>
+                      <span><%= row.others %></span>
+                    </td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+          <div class="text-center mt-4">
+            <a href="#assinar" class="lp__btn lp__btn--primary lp__btn--lg" data-scroll-to="assinar">
+              <%= hero.cta || 'Assinar agora' %>
+              <i class="i-chevron-down ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    <% } %>
+
+    <% if (Array.isArray(benefits.items) && benefits.items.length) { %>
+      <section class="lp__section lp__benefits">
+        <div class="container">
+          <% if (benefits.title) { %>
+            <h2 class="lp__section-title"><%= benefits.title %></h2>
+          <% } %>
+          <div class="row">
+            <% benefits.items.forEach(item => { %>
+              <div class="col-md-6 col-lg-4 mb-4">
+                <div class="lp__card">
+                  <% if (item.icon) { %>
+                    <span class="lp__card-icon">
+                      <i class="i-<%= item.icon %>"></i>
+                    </span>
+                  <% } %>
+                  <h3 class="lp__card-title"><%= item.title %></h3>
+                  <p class="lp__card-text"><%= item.text %></p>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+        </div>
+      </section>
+    <% } %>
+
+    <% if (Array.isArray(steps.items) && steps.items.length) { %>
+      <section class="lp__section lp__steps">
+        <div class="container">
+          <% if (steps.title) { %>
+            <h2 class="lp__section-title"><%= steps.title %></h2>
+          <% } %>
+          <ol class="lp__steps-list row">
+            <% steps.items.forEach((step, i) => { %>
+              <li class="col-md-4 mb-4">
+                <span class="lp__step-number"><%= i + 1 %></span>
+                <h3 class="lp__step-title"><%= step.title %></h3>
+                <p class="lp__step-text"><%= step.text %></p>
+              </li>
+            <% }) %>
+          </ol>
+        </div>
+      </section>
+    <% } %>
+
+    <section id="assinar" class="lp__section lp__checkout">
+      <div class="container">
+        <% if (checkout.title) { %>
+          <h2 class="lp__section-title"><%= checkout.title %></h2>
+        <% } %>
+        <% if (checkout.subtitle) { %>
+          <p class="lp__section-subtitle"><%= checkout.subtitle %></p>
+        <% } %>
+      </div>
+
+      <% if (product) { %>
+        <div class="lp__product <%= product.pictures && product.pictures.length ? '' : 'lp__product--no-pictures' %>">
+          <%- await include('@/sections/product-block', { _: { ..._, state: product }, opt: {} }) %>
+        </div>
+      <% } else { %>
+        <div class="container">
+          <p class="lp__section-subtitle">Produto indisponível no momento. Fale com a gente pelos contatos do rodapé.</p>
+        </div>
+      <% } %>
+    </section>
+
+    <% if (Array.isArray(faq.items) && faq.items.length) { %>
+      <section class="lp__section lp__faq">
+        <div class="container">
+          <% if (faq.title) { %>
+            <h2 class="lp__section-title"><%= faq.title %></h2>
+          <% } %>
+          <div class="lp__faq-list">
+            <% faq.items.forEach(item => { %>
+              <details class="lp__faq-item">
+                <summary class="lp__faq-question"><%= item.question %></summary>
+                <p class="lp__faq-answer"><%= item.answer %></p>
+              </details>
+            <% }) %>
+          </div>
+        </div>
+      </section>
+    <% } %>
+  </main>
+
+  <footer class="lp__footer">
+    <div class="container">
+      <div class="lp__footer-row">
+        <div class="lp__footer-contacts">
+          <% if (contacts.whatsapp) { %>
+            <a
+              class="whatsapp-link"
+              href="https://wa.me/<%= whatsapp.length <= 11 ? '55' + whatsapp : whatsapp %>"
+              target="_blank"
+              rel="noopener"
+              data-tel="<%= whatsapp %>"
+            >
+              <i class="i-whatsapp mr-1"></i>
+              <%= contacts.whatsapp %>
+            </a>
+          <% } %>
+          <% if (contacts.email) { %>
+            <a href="mailto:<%= contacts.email %>">
+              <i class="i-envelope mr-1"></i>
+              <%= contacts.email %>
+            </a>
+          <% } %>
+        </div>
+        <% if (Array.isArray(footer.links) && footer.links.length) { %>
+          <nav class="lp__footer-links">
+            <% footer.links.forEach(link => { %>
+              <a href="<%= link.href %>" target="_blank" rel="noopener"><%= link.label %></a>
+            <% }) %>
+          </nav>
+        <% } %>
+      </div>
+      <div class="lp__credits">
+        <span><%= footer.credits || `© ${_.settings.name}` %></span>
+        <%- await include('@/layout/inc/ecom-credits') %>
+      </div>
+    </div>
+  </footer>
+
+  <%
+  // contexto de página de produto para o widget de compra (`storefront.context.body`);
+  // montado aqui, depois de `@/head` preencher `_.widgets`
+  const productContext = { ..._, resolveRoute: async () => (product ? { resource: 'products', body: product } : {}) }
+  %>
+  <%- await include('@/json', { _: productContext }) %>
+
+  <script>
+    /*<!--*/
+    (function () {
+      // rolagem suave para as âncoras da página
+      document.addEventListener('click', function (ev) {
+        var $link = ev.target.closest && ev.target.closest('[data-scroll-to]')
+        if ($link) {
+          ev.preventDefault()
+          var $el = document.getElementById($link.getAttribute('data-scroll-to'))
+          if ($el) {
+            $el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+          }
+        }
+      })
+    }())
+    /*-->*/
+  </script>
+
+  <%- await include('@/scripts') %>
+</body>
+
+</html>

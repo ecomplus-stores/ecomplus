@@ -9,6 +9,9 @@ const landing = _.cms('landing') || {}
 const contacts = _.cms('contacts') || {}
 const hero = landing.hero || {}
 const proof = landing.proof || {}
+const ai = landing.ai || {}
+const chat = hero.chat || {}
+const diagram = ai.diagram || {}
 const spin = landing.spin || {}
 const comparison = landing.comparison || {}
 const benefits = landing.benefits || {}
@@ -67,24 +70,43 @@ if (landing.product_id) {
         </span>
       </div>
 
-      <div class="lp__hero-content">
-        <% if (hero.badge) { %>
-          <span class="lp__badge"><%= hero.badge %></span>
-        <% } %>
-        <h1 class="lp__title"><%= hero.title || _.settings.name %></h1>
-        <% if (hero.subtitle) { %>
-          <p class="lp__subtitle"><%= hero.subtitle %></p>
-        <% } %>
-        <a
-          href="#assinar"
-          class="lp__btn lp__btn--contrast lp__btn--lg"
-          data-scroll-to="assinar"
-        >
-          <%= hero.cta || 'Assinar agora' %>
-          <i class="i-chevron-down ml-1"></i>
-        </a>
-        <% if (hero.note) { %>
-          <p class="lp__note"><%= hero.note %></p>
+      <div class="lp__hero-grid">
+        <div class="lp__hero-content">
+          <% if (hero.badge) { %>
+            <span class="lp__badge"><%= hero.badge %></span>
+          <% } %>
+          <h1 class="lp__title"><%= hero.title || _.settings.name %></h1>
+          <% if (hero.subtitle) { %>
+            <p class="lp__subtitle"><%= hero.subtitle %></p>
+          <% } %>
+          <a
+            href="#assinar"
+            class="lp__btn lp__btn--contrast lp__btn--lg"
+            data-scroll-to="assinar"
+          >
+            <%= hero.cta || 'Assinar agora' %>
+            <i class="i-chevron-down ml-1"></i>
+          </a>
+          <% if (hero.note) { %>
+            <p class="lp__note"><%= hero.note %></p>
+          <% } %>
+        </div>
+
+        <% if (chat.question) { %>
+          <div class="lp__chat" aria-hidden="true">
+            <div class="lp__chat-bar">
+              <span></span><span></span><span></span>
+              <em><%= chat.title %></em>
+            </div>
+            <div class="lp__chat-msg lp__chat-msg--user"><%= chat.question %></div>
+            <div class="lp__chat-msg lp__chat-msg--ai">
+              <small>Claude · via MCP e‑com.plus</small>
+              <%= chat.answer %>
+            </div>
+            <% if (chat.meta) { %>
+              <div class="lp__chat-meta"><%= chat.meta %></div>
+            <% } %>
+          </div>
         <% } %>
       </div>
     </div>
@@ -98,15 +120,78 @@ if (landing.product_id) {
             <% proof.items.forEach(item => { %>
               <div class="col-6 col-lg-3 mb-3 mb-lg-0">
                 <div class="lp__proof-item">
-                  <% if (item.icon) { %>
-                    <i class="i-<%= item.icon %>"></i>
-                  <% } %>
                   <strong><%= item.title %></strong>
                   <span><%= item.text %></span>
                 </div>
               </div>
             <% }) %>
           </div>
+        </div>
+      </section>
+    <% } %>
+
+    <% if (Array.isArray(ai.features) && ai.features.length) { %>
+      <section class="lp__section lp__ai">
+        <div class="container">
+          <% if (ai.title) { %>
+            <h2 class="lp__section-title"><%= ai.title %></h2>
+          <% } %>
+          <% if (ai.subtitle) { %>
+            <p class="lp__section-subtitle"><%= ai.subtitle %></p>
+          <% } %>
+
+          <div class="lp__diagram" role="img" aria-label="Agente de IA conectado por MCP à API da e-com.plus">
+            <div class="lp__diagram-node lp__diagram-node--agent">
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="12" width="32" height="24" rx="6"/><circle cx="18" cy="24" r="3" fill="currentColor" stroke="none"/><circle cx="30" cy="24" r="3" fill="currentColor" stroke="none"/><path d="M24 4v8M16 44h16"/></svg>
+              <span><%= diagram.left || 'Agente de IA' %></span>
+            </div>
+            <div class="lp__diagram-link">
+              <svg viewBox="0 0 120 24" preserveAspectRatio="none" width="100%" height="24"><path d="M0 12h108" stroke="currentColor" stroke-width="2" stroke-dasharray="6 6"/><path d="M104 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+              <b><%= diagram.middle || 'MCP' %></b>
+            </div>
+            <div class="lp__diagram-node lp__diagram-node--api">
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 14l-8 10 8 10M30 14l8 10-8 10M27 10l-6 28"/></svg>
+              <span><%= diagram.right || 'API' %></span>
+            </div>
+            <div class="lp__diagram-link">
+              <svg viewBox="0 0 120 24" preserveAspectRatio="none" width="100%" height="24"><path d="M0 12h108" stroke="currentColor" stroke-width="2"/><path d="M104 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <ul class="lp__diagram-data">
+              <% (diagram.items || []).forEach(item => { %>
+                <li><%= item %></li>
+              <% }) %>
+            </ul>
+          </div>
+
+          <div class="row">
+            <% ai.features.forEach(item => { %>
+              <div class="col-md-4 mb-4">
+                <div class="lp__card lp__card--ai">
+                  <h3 class="lp__card-title"><%= item.title %></h3>
+                  <p class="lp__card-text"><%= item.text %></p>
+                </div>
+              </div>
+            <% }) %>
+          </div>
+
+          <% if (Array.isArray(ai.prompts) && ai.prompts.length) { %>
+            <div class="lp__prompts">
+              <% ai.prompts.forEach(prompt => { %>
+                <blockquote class="lp__prompt"><%= prompt %></blockquote>
+              <% }) %>
+            </div>
+          <% } %>
+
+          <% if (Array.isArray(ai.capabilities) && ai.capabilities.length) { %>
+            <dl class="lp__caps">
+              <% ai.capabilities.forEach(cap => { %>
+                <div class="lp__caps-item">
+                  <dt><%= cap.area %></dt>
+                  <dd><%= cap.text %></dd>
+                </div>
+              <% }) %>
+            </dl>
+          <% } %>
         </div>
       </section>
     <% } %>
@@ -234,7 +319,7 @@ if (landing.product_id) {
       </div>
 
       <% if (product) { %>
-        <div class="lp__product <%= product.pictures && product.pictures.length ? '' : 'lp__product--no-pictures' %>">
+        <div class="lp__product">
           <%- await include('@/sections/product-block', { _: { ..._, state: product }, opt: {} }) %>
         </div>
       <% } else { %>

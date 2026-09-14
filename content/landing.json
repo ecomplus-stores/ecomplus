@@ -222,24 +222,6 @@
         "title": "Storefront editado por IA",
         "text": "A frente de loja é código aberto com documentação para máquinas. Peça a mudança em português e veja o preview antes de publicar."
       }
-    ],
-    "capabilities": [
-      {
-        "area": "Pedidos",
-        "text": "listar, buscar, atualizar status, adicionar rastreio"
-      },
-      {
-        "area": "Produtos",
-        "text": "listar, buscar, atualizar preço e estoque"
-      },
-      {
-        "area": "Clientes",
-        "text": "listar, buscar, histórico completo de compras"
-      },
-      {
-        "area": "Relatórios",
-        "text": "vendas por período, top produtos, estoque crítico"
-      }
     ]
   },
   "chat_data": {

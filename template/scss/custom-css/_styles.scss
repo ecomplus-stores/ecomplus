@@ -564,41 +564,6 @@
     }
   }
 
-  &__caps {
-    display: grid;
-    gap: .75rem;
-    max-width: 52rem;
-    margin: 0 auto;
-
-    @media (min-width: 640px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  &__caps-item {
-    background: #fff;
-    border: 1px solid var(--ec-base-200);
-    border-radius: var(--ec-radius-lg);
-    padding: 1rem 1.1rem;
-
-    > dt {
-      font-weight: 700;
-      color: var(--ec-950);
-      margin-bottom: .25rem;
-    }
-
-    > dd {
-      margin: 0;
-      color: var(--ec-base-600);
-      font-size: .9rem;
-      line-height: 1.5;
-    }
-  }
-
   // SPIN selling
   &__spin-list {
     list-style: none;

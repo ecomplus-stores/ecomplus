@@ -156,16 +156,6 @@ if (landing.product_id) {
             <% }) %>
           </div>
 
-          <% if (Array.isArray(ai.capabilities) && ai.capabilities.length) { %>
-            <dl class="lp__caps">
-              <% ai.capabilities.forEach(cap => { %>
-                <div class="lp__caps-item">
-                  <dt><%= cap.area %></dt>
-                  <dd><%= cap.text %></dd>
-                </div>
-              <% }) %>
-            </dl>
-          <% } %>
         </div>
       </section>
     <% } %>

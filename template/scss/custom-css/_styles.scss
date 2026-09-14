@@ -1,1 +1,699 @@
-// Add your custom CSS here.
+// Landing page de página única (template/pages/index.ejs)
+// Identidade visual espelhada do site www.e-com.plus:
+// paleta roxa (tailwind.config.js), base slate, Urbanist no texto,
+// Fira Sans Extra Condensed itálica minúscula nos títulos (.ui-title),
+// botões com degradê e anel (.ui-btn-*), seções até 92rem (.ui-section).
+
+.lp {
+  // roxos (purplePattern do site)
+  --ec-50: #fdf3ff;
+  --ec-100: #fae7ff;
+  --ec-200: #f6ceff;
+  --ec-300: #f0a7ff;
+  --ec-500: #db3df8;
+  --ec-700: #a414b7;
+  --ec-800: #871395; // primary
+  --ec-900: #71157a;
+  --ec-950: #37003c; // secondary
+  --ec-970: #2f0033;
+  --ec-990: #09000a;
+  // base slate
+  --ec-base-50: #f8fafc;
+  --ec-base-100: #f1f5f9;
+  --ec-base-200: #e2e8f0;
+  --ec-base-500: #64748b;
+  --ec-base-600: #475569;
+  --ec-base-700: #334155;
+  --ec-base-800: #1e293b;
+  --ec-base-900: #0f172a;
+  --ec-success: #16a34a;
+  --ec-radius: .25rem;
+  --ec-radius-lg: .5rem;
+  --ec-font-title: "Fira Sans Extra Condensed", "Urbanist", sans-serif;
+  --ec-font-brand: "Fira Sans", "Urbanist", sans-serif;
+  --ec-transition: .2s ease;
+
+  background: #fff;
+  color: var(--ec-base-800);
+  font-family: "Urbanist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  a {
+    transition: color var(--ec-transition), background-color var(--ec-transition),
+      opacity var(--ec-transition);
+  }
+
+  // .ui-section: largura fluida com margens laterais, máximo 92rem
+  .container {
+    width: 100%;
+    max-width: calc(100vw - 3rem);
+    padding: 0 1px;
+    margin: 0 auto;
+
+    @media (min-width: 640px) {
+      max-width: calc(100vw - 4rem);
+    }
+
+    @media (min-width: 768px) {
+      max-width: calc(100vw - 5rem);
+    }
+
+    @media (min-width: 1280px) {
+      max-width: min(92rem, calc(100vw - 6rem));
+    }
+  }
+
+  &__section {
+    padding: 2.5rem 0;
+
+    @media (min-width: 768px) {
+      padding: 3.5rem 0;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 4rem 0;
+    }
+
+    @media (min-width: 1280px) {
+      padding: 5rem 0;
+    }
+  }
+
+  // .ui-title: Fira Sans Extra Condensed, itálica, minúscula, degradê roxo
+  &__section-title {
+    font-family: var(--ec-font-title);
+    font-weight: 500;
+    font-style: italic;
+    text-transform: lowercase;
+    letter-spacing: -.025em;
+    line-height: 1;
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: transparent;
+    background: linear-gradient(to top left, var(--ec-900), var(--ec-950));
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    @media (min-width: 768px) {
+      font-size: 3.75rem;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 4.5rem;
+    }
+  }
+
+  &__section-subtitle {
+    text-align: center;
+    max-width: 44rem;
+    margin: -1rem auto 2.5rem;
+    color: var(--ec-base-600);
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  // Botões (.ui-btn, .ui-btn-primary, .ui-btn-contrast, .ui-btn-lg)
+  &__btn {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: .5rem .875rem;
+    border-radius: var(--ec-radius);
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1), 0 1px 2px rgba(0, 0, 0, .06);
+    transition: background var(--ec-transition), color var(--ec-transition),
+      box-shadow var(--ec-transition), transform .1s ease;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    > i {
+      font-size: .85em;
+    }
+  }
+
+  &__btn--lg {
+    font-size: 1.125rem;
+    padding: .75rem 1.25rem;
+  }
+
+  &__btn--primary {
+    color: #fff;
+    background: linear-gradient(to bottom left, var(--ec-970), var(--ec-900));
+    box-shadow: 0 0 0 2px rgba(135, 19, 149, .1), 0 1px 3px rgba(0, 0, 0, .1);
+
+    &:hover {
+      color: #fff;
+      background: linear-gradient(to bottom left, var(--ec-950), var(--ec-800));
+    }
+  }
+
+  &__btn--contrast {
+    color: var(--ec-800);
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, .15), 0 1px 3px rgba(0, 0, 0, .1);
+
+    &:hover {
+      color: var(--ec-900);
+      background: var(--ec-50);
+    }
+  }
+
+  // Hero: mesmo degradê do rodapé do site (secondary → primary-990)
+  &__hero {
+    color: #fff;
+    background: linear-gradient(to bottom right, var(--ec-950), var(--ec-990));
+    padding: 1.25rem 0 4.5rem;
+
+    @media (min-width: 1024px) {
+      padding-bottom: 6rem;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 3rem;
+
+    @media (min-width: 1024px) {
+      margin-bottom: 4.5rem;
+    }
+  }
+
+  &__logo {
+    height: 2.5rem;
+    width: auto;
+    max-width: 100%;
+
+    @media (min-width: 768px) {
+      height: 3rem;
+    }
+  }
+
+  &__safe {
+    font-size: .8rem;
+    color: rgba(255, 255, 255, .85);
+    white-space: nowrap;
+
+    > i {
+      margin-right: .3rem;
+    }
+  }
+
+  &__hero-content {
+    max-width: 46rem;
+  }
+
+  // .ui-badge-pill sobre fundo roxo
+  &__badge {
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 600;
+    line-height: 1.6;
+    padding: .125rem .75rem;
+    border-radius: 9999px;
+    color: var(--ec-100);
+    background: rgba(253, 243, 255, .08);
+    border: 1px solid rgba(250, 231, 255, .25);
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-family: var(--ec-font-title);
+    font-weight: 500;
+    font-style: italic;
+    text-transform: lowercase;
+    letter-spacing: -.025em;
+    line-height: 1;
+    font-size: 3rem;
+    margin-bottom: 1.25rem;
+    color: #fff;
+
+    @media (min-width: 768px) {
+      font-size: 3.75rem;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 4.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, .85);
+    margin-bottom: 2rem;
+    max-width: 40rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__note {
+    margin: 1rem 0 0;
+    font-size: .9rem;
+    color: rgba(255, 255, 255, .7);
+  }
+
+  // Faixa de prova (diferenciais curtos)
+  &__proof {
+    padding: 0 0 1rem;
+    margin-top: -2.5rem;
+
+    .container {
+      background: #fff;
+      border-radius: var(--ec-radius-lg);
+      box-shadow: 0 0 0 1px var(--ec-base-200), 0 12px 32px rgba(55, 0, 60, .1);
+      padding: 1.5rem 1.25rem;
+
+      @media (min-width: 768px) {
+        padding: 1.75rem 2rem;
+      }
+    }
+  }
+
+  &__proof-item {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    font-size: .9rem;
+    color: var(--ec-base-600);
+
+    > i {
+      color: var(--ec-800);
+      font-size: 1.35rem;
+      margin-bottom: .35rem;
+    }
+
+    > strong {
+      color: var(--ec-950);
+      font-size: 1rem;
+    }
+  }
+
+  // SPIN selling
+  &__spin-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 56rem;
+    display: grid;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__spin-item {
+    position: relative;
+    padding: 1.75rem 1.75rem 1.75rem 2rem;
+    border-radius: var(--ec-radius-lg);
+    background: var(--ec-base-50);
+    box-shadow: inset 0 0 0 1px var(--ec-base-200);
+    border-left: 4px solid var(--ec-200);
+
+    &[data-solution] {
+      background: linear-gradient(to bottom right, var(--ec-950), var(--ec-990));
+      box-shadow: none;
+      border-left-color: var(--ec-500);
+      color: #fff;
+
+      .lp__spin-label {
+        color: var(--ec-300);
+      }
+
+      .lp__spin-title {
+        color: #fff;
+      }
+
+      .lp__spin-text {
+        color: rgba(255, 255, 255, .85);
+      }
+
+      @media (min-width: 768px) {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  // .brand-eyebrow
+  &__spin-label {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .72rem;
+    font-weight: 600;
+    color: var(--ec-800);
+    margin-bottom: .5rem;
+  }
+
+  &__spin-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ec-950);
+    margin-bottom: .5rem;
+  }
+
+  &__spin-text {
+    margin: 0;
+    color: var(--ec-base-600);
+    line-height: 1.6;
+  }
+
+  // Comparativo
+  &__comparison {
+    background: var(--ec-base-50);
+  }
+
+  &__table-wrap {
+    overflow-x: auto;
+    border-radius: var(--ec-radius-lg);
+    background: #fff;
+    box-shadow: 0 0 0 1px var(--ec-base-200), 0 8px 24px rgba(55, 0, 60, .05);
+  }
+
+  &__table {
+    width: 100%;
+    min-width: 40rem;
+    border-collapse: collapse;
+    font-size: .95rem;
+
+    th,
+    td {
+      padding: .9rem 1rem;
+      vertical-align: top;
+      border-bottom: 1px solid var(--ec-base-200);
+    }
+
+    thead th {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--ec-base-500);
+      border-bottom-width: 2px;
+    }
+
+    tbody th {
+      width: 9rem;
+      color: var(--ec-950);
+      font-weight: 600;
+    }
+
+    td {
+      color: var(--ec-base-600);
+      line-height: 1.5;
+
+      > i {
+        float: left;
+        margin: .15rem .5rem 0 0;
+        color: var(--ec-base-500);
+      }
+
+      > span {
+        display: block;
+        overflow: hidden;
+      }
+    }
+
+    tr:last-child th,
+    tr:last-child td {
+      border-bottom: 0;
+    }
+  }
+
+  &__table-plus {
+    background: rgba(250, 231, 255, .12);
+
+    > i {
+      color: var(--ec-success) !important;
+    }
+  }
+
+  &__table thead th.lp__table-plus {
+    color: var(--ec-800);
+  }
+
+  // Benefícios (FeaturesGrid: rounded-lg, ring, hover borda roxa)
+  &__card {
+    height: 100%;
+    padding: 1.75rem;
+    border-radius: var(--ec-radius-lg);
+    background: #fff;
+    border: 1px solid var(--ec-base-200);
+    transition: border-color var(--ec-transition), box-shadow var(--ec-transition);
+
+    &:hover {
+      border-color: var(--ec-900);
+      box-shadow: 0 0 0 4px rgba(135, 19, 149, .08);
+    }
+  }
+
+  &__card-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--ec-radius-lg);
+    background: var(--ec-50);
+    border: 1px solid var(--ec-100);
+    color: var(--ec-800);
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  &__card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--ec-950);
+    margin-bottom: .5rem;
+  }
+
+  &__card-text {
+    margin: 0;
+    color: var(--ec-base-600);
+    line-height: 1.6;
+  }
+
+  // Como funciona
+  &__steps {
+    background: var(--ec-base-50);
+  }
+
+  &__steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: linear-gradient(to bottom left, var(--ec-970), var(--ec-900));
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__step-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--ec-950);
+  }
+
+  &__step-text {
+    margin: 0;
+    color: var(--ec-base-600);
+    line-height: 1.6;
+  }
+
+  // Bloco de produto padrão do storefront dentro da landing
+  &__checkout {
+    padding-bottom: 2rem;
+  }
+
+  &__product {
+    .product-block {
+      margin: 0 !important;
+    }
+
+    .product-block > .container {
+      max-width: 60rem;
+      background: #fff;
+      border-radius: var(--ec-radius-lg);
+      padding: 2rem 1.5rem;
+
+      @media (min-width: 768px) {
+        padding: 2.5rem 3rem;
+      }
+    }
+
+    .product__name {
+      font-family: var(--ec-font-title);
+      font-weight: 500;
+      font-style: italic;
+      text-transform: lowercase;
+      letter-spacing: -.025em;
+      font-size: 2.5rem;
+      color: var(--ec-950);
+    }
+
+    .product__sku {
+      color: var(--ec-base-500);
+    }
+
+    .product__buy .btn,
+    .product__buy button {
+      font-weight: 500;
+      border-radius: var(--ec-radius);
+      background: linear-gradient(to bottom left, var(--ec-970), var(--ec-900));
+      border: 0;
+      box-shadow: 0 0 0 2px rgba(135, 19, 149, .1), 0 1px 3px rgba(0, 0, 0, .1);
+
+      &:hover {
+        background: linear-gradient(to bottom left, var(--ec-950), var(--ec-800));
+      }
+    }
+
+    // esconde favoritos, compartilhamento, condições de pagamento e calculadora de frete
+    .product__favorite,
+    .share,
+    .btn-sms,
+    .product__payment,
+    .shipping-calculator,
+    .product__free-shipping-from {
+      display: none !important;
+    }
+
+    // produto sem fotos: some com a coluna da galeria e centraliza
+    &--no-pictures {
+      .product > .row > .col-md-6:first-child {
+        display: none;
+      }
+
+      .product > .row > .col {
+        text-align: center;
+        max-width: 40rem;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  // FAQ
+  &__faq {
+    background: var(--ec-base-50);
+  }
+
+  &__faq-list {
+    max-width: 46rem;
+    margin: 0 auto;
+  }
+
+  &__faq-item {
+    background: #fff;
+    border-radius: var(--ec-radius-lg);
+    border: 1px solid var(--ec-base-200);
+    padding: 1rem 1.25rem;
+    margin-bottom: .75rem;
+
+    &[open] .lp__faq-question {
+      color: var(--ec-800);
+    }
+  }
+
+  &__faq-question {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--ec-950);
+    outline: none;
+  }
+
+  &__faq-answer {
+    margin: .75rem 0 0;
+    color: var(--ec-base-600);
+    line-height: 1.6;
+  }
+
+  // Rodapé: degradê do SiteFooter + faixa de créditos do FooterCredits
+  &__footer {
+    padding: 2.5rem 0 0;
+    background: linear-gradient(to bottom right, var(--ec-950), var(--ec-990));
+    color: rgba(255, 255, 255, .85);
+    font-size: .9rem;
+    font-weight: 500;
+
+    a {
+      color: #fff;
+
+      &:hover {
+        color: var(--ec-200);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+    }
+  }
+
+  &__footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    padding-bottom: 2.5rem;
+  }
+
+  &__footer-contacts,
+  &__footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+  }
+
+  &__credits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem 1rem;
+    margin: 0 calc(-50vw + 50%);
+    padding: 1rem calc(50vw - 50%);
+    background: var(--ec-base-50);
+    color: var(--ec-base-700);
+    font-size: .875rem;
+    font-weight: 400;
+
+    a {
+      color: var(--ec-base-700);
+    }
+
+    .ecom-credits img {
+      border-radius: var(--ec-radius);
+    }
+  }
+}
+
+// Checkout: alinhamento com a identidade (Urbanist e roxos vêm de settings.json)
+.checkout--digital {
+  .checkout__buyer {
+    padding: 1rem 1.25rem;
+    border-radius: .5rem;
+    background: var(--light);
+  }
+
+  .checkout__digital-note {
+    margin-top: 1rem;
+  }
+}

@@ -226,7 +226,7 @@
   },
   "chat_data": {
     "eyebrow": "Dados da loja",
-    "title": "Pergunte à sua loja, em português",
+    "title": "Toda a operação, a uma pergunta de distância",
     "subtitle": "Com o conector MCP, sua IA de preferência consulta pedidos, produtos e clientes em tempo real pela API e produz todo tipo de relatório que quiser. Sem exportar planilha, sem abrir painel.",
     "bullets": [
       "Cruza vendas, estoque e clientes em segundos",

@@ -3,7 +3,7 @@
   "hero": {
     "badge": "Plataforma de e-commerce headless e API-first",
     "title": "Sua loja pronta para a era dos agentes inteligentes",
-    "subtitle": "Produtos, pedidos e clientes expostos por API em estruturas nativas para modelos de linguagem. Conector MCP para o Claude, storefront editado por IA e zero comissão sobre o faturamento.",
+    "subtitle": "Produtos, pedidos e clientes expostos por API em estruturas nativas para modelos de linguagem. Conector MCP para a sua IA, storefront editado por IA e zero comissão sobre o faturamento.",
     "cta": "Assinar agora",
     "note": "Cartão de crédito ou boleto. Sem frete: o acesso chega no seu e-mail."
   },
@@ -57,7 +57,7 @@
       },
       {
         "question": "Preciso saber programar para usar a IA na loja?",
-        "answer": "Não. O conector MCP roda no Claude Desktop, app gratuito para Mac e Windows: você cria um usuário exclusivo para a integração no painel, autentica uma vez e passa a conversar com a loja em português."
+        "answer": "Não. O conector MCP funciona com a IA que você já usa: você cria um usuário exclusivo para a integração no painel, autentica uma vez e passa a conversar com a loja em português."
       },
       {
         "question": "Quais formas de pagamento são aceitas?",
@@ -106,7 +106,7 @@
       },
       {
         "title": "Conector MCP",
-        "text": "O Claude opera a loja em dados nativos, sem raspar HTML."
+        "text": "Sua IA opera a loja em dados nativos, sem raspar HTML."
       },
       {
         "title": "Suporte técnico direto",
@@ -165,7 +165,7 @@
       },
       {
         "label": "IA e agentes",
-        "plus": "API pensada para LLMs e conector MCP: o Claude consulta e opera a loja em dados nativos.",
+        "plus": "API pensada para LLMs e conector MCP: sua IA consulta e opera a loja em dados nativos.",
         "others": "Sem interface para agentes; a IA precisa raspar o painel ou depender de app de terceiro."
       },
       {
@@ -199,7 +199,7 @@
     "title": "Inteligência artificial direto na sua operação",
     "subtitle": "A maioria das plataformas foi feita para gente clicar em painel. A e‑com.plus foi feita para ser lida por máquinas: cada recurso é uma API com parâmetros pensados para LLMs.",
     "diagram": {
-      "left": "Claude, Gemini ou o agente que você usar",
+      "left": "Sua IA: Claude, Gemini ou o agente que você usar",
       "middle": "MCP",
       "right": "API e‑com.plus",
       "items": [
@@ -212,7 +212,7 @@
     "features": [
       {
         "title": "Pergunte, não exporte",
-        "text": "Conecte o Claude Desktop à loja e converse com ela em português. A IA consulta a API em tempo real e devolve a análise pronta."
+        "text": "Conecte a IA que você já usa à loja e converse com ela em português. Ela consulta a API em tempo real e devolve a análise pronta."
       },
       {
         "title": "Dados no formato da IA",
@@ -227,13 +227,13 @@
   "chat_data": {
     "eyebrow": "Dados da loja",
     "title": "Pergunte à sua loja, em português",
-    "subtitle": "Com o conector MCP, o Claude consulta pedidos, produtos, clientes e relatórios em tempo real pela API. Sem exportar planilha, sem abrir painel.",
+    "subtitle": "Com o conector MCP, sua IA de preferência consulta pedidos, produtos e clientes em tempo real pela API e produz todo tipo de relatório que quiser. Sem exportar planilha, sem abrir painel.",
     "bullets": [
       "Cruza vendas, estoque e clientes em segundos",
       "Age no momento certo, não no relatório da semana que vem",
       "Acesso direto à API: nenhum arquivo, nenhum upload"
     ],
-    "author": "Claude · via MCP e‑com.plus",
+    "author": "Sua IA · via MCP e‑com.plus",
     "chats": [
       {
         "question": "Quais pedidos pagos há mais de 5 dias ainda estão sem rastreio?",
@@ -246,14 +246,29 @@
         "meta": "Vendas e estoque cruzados na hora"
       },
       {
+        "question": "Nos pedidos pagos dos últimos 3 meses, quais pares de produtos aparecem juntos com mais frequência?",
+        "answer": "Sérum + hidratante lideram, em 18% dos pedidos. Sugiro um kit com 10% off e compre-junto na página de cada um.",
+        "meta": "Base para kits e compre-junto"
+      },
+      {
         "question": "Quais dos 30 maiores clientes de 2024 não compram há 90 dias?",
         "answer": "Onze clientes, R$ 38 mil em compras no ano passado. Preparei nome, e-mail e última compra para a reativação.",
         "meta": "Clientes VIP prontos para a régua de retenção"
       },
       {
+        "question": "Quem comprou em março, abril e maio mas não fez pedido em junho?",
+        "answer": "23 clientes de ciclo mensal quebraram a sequência. Separei a lista com o produto que cada um costuma repor.",
+        "meta": "Sinal de churn antes do relatório do mês"
+      },
+      {
         "question": "Quanto perdi em maio com cancelamentos e estornos?",
         "answer": "R$ 12.480 em 43 pedidos, 4,1% do faturamento. Metade foi boleto não pago: vale encurtar o prazo.",
         "meta": "Taxa de perda sem relatório nem planilha"
+      },
+      {
+        "question": "Compara o faturamento semana a semana de maio e junho.",
+        "answer": "Junho fechou 9% acima. A única queda foi na 2ª semana, quando o frete grátis saiu do ar por dois dias.",
+        "meta": "Sazonalidade explicada com dados da própria loja"
       },
       {
         "question": "Quais são os 10 carrinhos abandonados de maior valor?",
@@ -284,9 +299,19 @@
         "meta": "Seção da home reorganizada por comando"
       },
       {
+        "question": "Centralize o bloco \"API\" no diagrama, está um pouco para a direita, e deixe as setas bidirecionais.",
+        "answer": "Colunas simétricas puseram o bloco no centro exato da página e as setas agora apontam para os dois lados.",
+        "meta": "Pedido feito enquanto editávamos esta página"
+      },
+      {
         "question": "Na página de produto, mostre as medidas como botões de escolha, com o rótulo \"Escolha o tamanho\".",
         "answer": "Medidas viraram botões com o selecionado em destaque. Fica claro que é só clicar na que o cliente quer.",
         "meta": "Seletor de variações ajustado no componente de produto"
+      },
+      {
+        "question": "A tabela comparativa não ficou boa no celular por causa da rolagem horizontal. Se não houver alternativa, esconda em telas pequenas.",
+        "answer": "Em telas pequenas ela vira um card por critério, com a coluna da e-com.plus em destaque. Nada rola na horizontal.",
+        "meta": "Alternativa responsiva em vez de esconder"
       },
       {
         "question": "No checkout, resuma a retirada na loja: \"Retire grátis na loja\", bairro e prazo, com link para endereço e horários.",
@@ -294,9 +319,19 @@
         "meta": "Texto do checkout ajustado em um pedido"
       },
       {
+        "question": "A letra \"g\" está cortada embaixo nos títulos. Acho que precisa de mais espaçamento.",
+        "answer": "O degradê do título é recortado no texto e comia os descendentes. Dei folga inferior e o \"g\" voltou inteiro.",
+        "meta": "Detalhe tipográfico resolvido na hora"
+      },
+      {
         "question": "Loja de atacado: preço e compra só para revendedor aprovado, CTA de cadastro para os demais e mínimo de R$ 300 no carrinho.",
         "answer": "Visitante vê o catálogo com \"Cadastre-se como revendedor\"; aprovado vê preço. O carrinho mostra quanto falta para R$ 300.",
         "meta": "Regra B2B aplicada no storefront e validada no checkout"
+      },
+      {
+        "question": "O bloco de conversa muda de altura a cada resposta. Deixe fixo para ter mais estabilidade visual.",
+        "answer": "Todas as conversas ficam renderizadas invisíveis na mesma célula, então o bloco mantém sempre a altura da maior.",
+        "meta": "Este mesmo bloco, ajustado por comando"
       }
     ]
   }

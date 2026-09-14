@@ -296,6 +296,61 @@
     text-align: center;
   }
 
+  &__chat-tabs {
+    display: flex;
+    gap: .35rem;
+    margin-bottom: .9rem;
+
+    > button {
+      flex: 1;
+      border: 1px solid rgba(255, 255, 255, .18);
+      background: transparent;
+      color: rgba(255, 255, 255, .75);
+      border-radius: 9999px;
+      font: inherit;
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .3rem .6rem;
+      cursor: pointer;
+      transition: background var(--ec-transition), color var(--ec-transition);
+
+      &.is-active {
+        background: #fff;
+        color: var(--ec-950);
+        border-color: #fff;
+      }
+    }
+  }
+
+  &__chat-stage {
+    min-height: 13.5rem;
+  }
+
+  &__chat-item.is-in {
+    animation: lp-chat-in .45s ease both;
+  }
+
+  &__chat-dots {
+    display: flex;
+    justify-content: center;
+    gap: .35rem;
+    margin-top: .75rem;
+
+    > button {
+      width: .5rem;
+      height: .5rem;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .3);
+      cursor: pointer;
+
+      &.is-active {
+        background: #fff;
+      }
+    }
+  }
+
   // .ui-badge-pill sobre fundo roxo
   &__badge {
     display: inline-block;
@@ -944,5 +999,17 @@
 
   .checkout__digital-note {
     margin-top: 1rem;
+  }
+}
+
+@keyframes lp-chat-in {
+  from {
+    opacity: 0;
+    transform: translateY(.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
   }
 }

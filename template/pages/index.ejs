@@ -10,7 +10,8 @@ const contacts = _.cms('contacts') || {}
 const hero = landing.hero || {}
 const proof = landing.proof || {}
 const ai = landing.ai || {}
-const chat = hero.chat || {}
+const chats = Array.isArray(hero.chats) ? hero.chats : []
+const chatLabels = hero.chat_labels || {}
 const diagram = ai.diagram || {}
 const spin = landing.spin || {}
 const comparison = landing.comparison || {}
@@ -92,20 +93,32 @@ if (landing.product_id) {
           <% } %>
         </div>
 
-        <% if (chat.question) { %>
-          <div class="lp__chat" aria-hidden="true">
+        <% if (chats.length) { %>
+          <div class="lp__chat" id="lp-chat" aria-hidden="true">
             <div class="lp__chat-bar">
               <span></span><span></span><span></span>
-              <em><%= chat.title %></em>
+              <em data-chat-title><%= chats[0].title %></em>
             </div>
-            <div class="lp__chat-msg lp__chat-msg--user"><%= chat.question %></div>
-            <div class="lp__chat-msg lp__chat-msg--ai">
-              <small>Claude · via MCP e‑com.plus</small>
-              <%= chat.answer %>
+            <div class="lp__chat-tabs">
+              <% Object.keys(chatLabels).forEach((kind, i) => { %>
+                <button type="button" data-chat-kind="<%= kind %>" class="<%= i === 0 ? 'is-active' : '' %>"><%= chatLabels[kind] %></button>
+              <% }) %>
             </div>
-            <% if (chat.meta) { %>
-              <div class="lp__chat-meta"><%= chat.meta %></div>
-            <% } %>
+            <div class="lp__chat-stage">
+              <% chats.forEach((chat, i) => { %>
+                <div class="lp__chat-item" data-chat-kind="<%= chat.kind %>" data-chat-title="<%= chat.title %>" <%= i === 0 ? '' : 'hidden' %>>
+                  <div class="lp__chat-msg lp__chat-msg--user"><%= chat.question %></div>
+                  <div class="lp__chat-msg lp__chat-msg--ai">
+                    <small><%= chat.kind === 'visual' ? 'Agente de código' : 'Claude · via MCP e‑com.plus' %></small>
+                    <%= chat.answer %>
+                  </div>
+                  <% if (chat.meta) { %>
+                    <div class="lp__chat-meta"><%= chat.meta %></div>
+                  <% } %>
+                </div>
+              <% }) %>
+            </div>
+            <div class="lp__chat-dots" role="presentation"></div>
           </div>
         <% } %>
       </div>
@@ -396,6 +409,58 @@ if (landing.product_id) {
   <script>
     /*<!--*/
     (function () {
+      // hero: alterna os exemplos de conversa (dados via MCP e edição visual)
+      var $chat = document.getElementById('lp-chat')
+      if ($chat) {
+        var $items = Array.prototype.slice.call($chat.querySelectorAll('.lp__chat-item'))
+        var $tabs = Array.prototype.slice.call($chat.querySelectorAll('.lp__chat-tabs button'))
+        var $title = $chat.querySelector('[data-chat-title]')
+        var $dots = $chat.querySelector('.lp__chat-dots')
+        var kind = $tabs.length ? $tabs[0].getAttribute('data-chat-kind') : null
+        var index = 0
+        var timer
+        var kindItems = function () {
+          return kind ? $items.filter(function ($el) { return $el.getAttribute('data-chat-kind') === kind }) : $items
+        }
+        var render = function () {
+          var list = kindItems()
+          if (!list.length) return
+          index = index % list.length
+          $items.forEach(function ($el) { $el.hidden = true })
+          var $current = list[index]
+          $current.hidden = false
+          $current.classList.remove('is-in')
+          void $current.offsetWidth
+          $current.classList.add('is-in')
+          if ($title) $title.textContent = $current.getAttribute('data-chat-title')
+          if ($dots) {
+            $dots.innerHTML = ''
+            list.forEach(function (_, i) {
+              var $dot = document.createElement('button')
+              $dot.type = 'button'
+              $dot.className = i === index ? 'is-active' : ''
+              $dot.setAttribute('aria-label', 'Exemplo ' + (i + 1))
+              $dot.addEventListener('click', function () { index = i; render(); schedule() })
+              $dots.appendChild($dot)
+            })
+          }
+        }
+        var schedule = function () {
+          clearInterval(timer)
+          timer = setInterval(function () { index++; render() }, 7000)
+        }
+        $tabs.forEach(function ($tab) {
+          $tab.addEventListener('click', function () {
+            kind = $tab.getAttribute('data-chat-kind')
+            index = 0
+            $tabs.forEach(function ($t) { $t.classList.toggle('is-active', $t === $tab) })
+            render()
+            schedule()
+          })
+        })
+        render()
+        schedule()
+      }
       // rolagem suave para as âncoras da página
       document.addEventListener('click', function (ev) {
         var $link = ev.target.closest && ev.target.closest('[data-scroll-to]')

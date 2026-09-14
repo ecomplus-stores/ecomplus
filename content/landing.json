@@ -5,83 +5,7 @@
     "title": "Sua loja pronta para a era dos agentes inteligentes",
     "subtitle": "Produtos, pedidos e clientes expostos por API em estruturas nativas para modelos de linguagem. Conector MCP para o Claude, storefront editado por IA e zero comissão sobre o faturamento.",
     "cta": "Assinar agora",
-    "note": "Cartão de crédito ou boleto. Sem frete: o acesso chega no seu e-mail.",
-    "chats": [
-      {
-        "kind": "dados",
-        "title": "Claude conectado à sua loja",
-        "question": "Liste os pedidos pagos há mais de 5 dias que ainda não têm código de rastreio, do mais antigo para o mais novo.",
-        "answer": "Encontrei 7 pedidos. O mais antigo é o #48213, pago há 9 dias. Três são do mesmo cliente VIP. Quer que eu marque como prioridade e avise o fulfillment?",
-        "meta": "Consulta em tempo real pela API, sem exportar planilha"
-      },
-      {
-        "kind": "dados",
-        "title": "Claude conectado à sua loja",
-        "question": "Cruza os 20 produtos mais vendidos em junho com o estoque atual. Quais têm menos de 10 unidades?",
-        "answer": "Cinco produtos estão abaixo de 10 unidades. O pior caso é o Kit Verão: 4 em estoque, vende 3 por dia. Isso dá pouco mais de um dia de cobertura. Quer que eu monte a lista de reposição?",
-        "meta": "Estoque crítico cruzado com o relatório de vendas"
-      },
-      {
-        "kind": "dados",
-        "title": "Claude conectado à sua loja",
-        "question": "Pega os 30 clientes que mais compraram em 2024 e verifica quais não fizeram pedido nos últimos 90 dias.",
-        "answer": "Onze dos 30 sumiram. Juntos, eles faturaram R$ 38 mil no ano passado. Preparei nome, e-mail e data da última compra de cada um para uma campanha de reativação.",
-        "meta": "Clientes VIP inativos, prontos para a régua de retenção"
-      },
-      {
-        "kind": "dados",
-        "title": "Claude conectado à sua loja",
-        "question": "Em maio, quanto deixei de faturar com pedidos cancelados, estornados ou reembolsados?",
-        "answer": "R$ 12.480 em 43 pedidos, 4,1% do faturamento efetivo. Metade dos cancelamentos aconteceu em boletos não pagos. Sugiro reduzir o prazo do boleto de 3 para 2 dias.",
-        "meta": "Taxa de perda calculada na hora, sem relatório"
-      },
-      {
-        "kind": "dados",
-        "title": "Claude conectado à sua loja",
-        "question": "Quais são os 10 carrinhos abandonados com maior valor? Quero nome, e-mail e os produtos de cada um.",
-        "answer": "Os 10 carrinhos somam R$ 9.870. O maior, de R$ 2.340, parou na etapa de pagamento ontem à noite. Listei os itens e o contato de cada cliente para o disparo de recuperação.",
-        "meta": "Dados dos carrinhos direto da API, em segundos"
-      },
-      {
-        "kind": "visual",
-        "title": "Editando a frente de loja com IA",
-        "question": "Retire o degradê desse botão no hero e deixe apenas branco.",
-        "answer": "Feito: o botão agora é branco sólido, com hover em lilás bem claro. O preview já está atualizado e o commit fica pronto para você publicar.",
-        "meta": "Storefront em código aberto, editado em português"
-      },
-      {
-        "kind": "visual",
-        "title": "Editando a frente de loja com IA",
-        "question": "Use no cabeçalho a versão branca do logo, igual ao rodapé do site.",
-        "answer": "Troquei o logo do cabeçalho pelo SVG branco, inline, para não pesar o carregamento. Ficou alinhado à esquerda com o selo de ambiente seguro à direita.",
-        "meta": "Mudança versionada no GitHub, com preview antes de publicar"
-      },
-      {
-        "kind": "visual",
-        "title": "Editando a frente de loja com IA",
-        "question": "Esses três cards estão dois em cima e um embaixo em telas grandes. Coloque os três na mesma linha.",
-        "answer": "Ajustei a grade para três colunas a partir de 768px. No celular eles continuam empilhados. Quer ver o preview em mobile e desktop?",
-        "meta": "Layout responsivo ajustado por comando"
-      },
-      {
-        "kind": "visual",
-        "title": "Editando a frente de loja com IA",
-        "question": "Esconda a calculadora de frete e as opções de pagamento do bloco de produto. É um produto digital.",
-        "answer": "Ocultei a calculadora de frete, o cálculo de parcelas e a galeria de fotos nesse bloco. O botão de compra continua levando direto ao checkout.",
-        "meta": "Cada componente da loja é um arquivo que a IA entende"
-      },
-      {
-        "kind": "visual",
-        "title": "Editando a frente de loja com IA",
-        "question": "Aplique a identidade do nosso site: paleta roxa, fonte Urbanist e degradê roxo no hero como no rodapé.",
-        "answer": "Apliquei os tokens do site: primária #871395, secundária #37003c, Urbanist no texto e Fira Sans nos títulos. O hero ganhou o mesmo degradê do rodapé.",
-        "meta": "Identidade visual replicada a partir do site institucional"
-      }
-    ],
-    "chat_labels": {
-      "dados": "Dados da loja",
-      "visual": "Edição visual"
-    }
+    "note": "Cartão de crédito ou boleto. Sem frete: o acesso chega no seu e-mail."
   },
   "benefits": {
     "title": "O que você leva no plano",
@@ -299,11 +223,6 @@
         "text": "A frente de loja é código aberto com documentação para máquinas. Peça a mudança em português e veja o preview antes de publicar."
       }
     ],
-    "prompts": [
-      "Quais produtos vendem mais e têm menos de 10 unidades em estoque?",
-      "Quais clientes VIP não compram há 90 dias? Quero nome e e-mail.",
-      "Quanto perdi com cancelamentos no mês passado?"
-    ],
     "capabilities": [
       {
         "area": "Pedidos",
@@ -320,6 +239,84 @@
       {
         "area": "Relatórios",
         "text": "vendas por período, top produtos, estoque crítico"
+      }
+    ]
+  },
+  "chat_data": {
+    "eyebrow": "Dados da loja",
+    "title": "Pergunte à sua loja, em português",
+    "subtitle": "Com o conector MCP, o Claude consulta pedidos, produtos, clientes e relatórios em tempo real pela API. Sem exportar planilha, sem abrir painel.",
+    "bullets": [
+      "Cruza vendas, estoque e clientes em segundos",
+      "Age no momento certo, não no relatório da semana que vem",
+      "Acesso direto à API: nenhum arquivo, nenhum upload"
+    ],
+    "chat_title": "Claude conectado à sua loja",
+    "author": "Claude · via MCP e‑com.plus",
+    "chats": [
+      {
+        "question": "Liste os pedidos pagos há mais de 5 dias que ainda não têm código de rastreio, do mais antigo para o mais novo.",
+        "answer": "Encontrei 7 pedidos. O mais antigo é o #48213, pago há 9 dias. Três são do mesmo cliente VIP. Quer que eu marque como prioridade e avise o fulfillment?",
+        "meta": "Consulta em tempo real pela API, sem exportar planilha"
+      },
+      {
+        "question": "Cruza os 20 produtos mais vendidos em junho com o estoque atual. Quais têm menos de 10 unidades?",
+        "answer": "Cinco produtos estão abaixo de 10 unidades. O pior caso é o Kit Verão: 4 em estoque, vende 3 por dia. Isso dá pouco mais de um dia de cobertura. Quer que eu monte a lista de reposição?",
+        "meta": "Estoque crítico cruzado com o relatório de vendas"
+      },
+      {
+        "question": "Pega os 30 clientes que mais compraram em 2024 e verifica quais não fizeram pedido nos últimos 90 dias.",
+        "answer": "Onze dos 30 sumiram. Juntos, eles faturaram R$ 38 mil no ano passado. Preparei nome, e-mail e data da última compra de cada um para uma campanha de reativação.",
+        "meta": "Clientes VIP inativos, prontos para a régua de retenção"
+      },
+      {
+        "question": "Em maio, quanto deixei de faturar com pedidos cancelados, estornados ou reembolsados?",
+        "answer": "R$ 12.480 em 43 pedidos, 4,1% do faturamento efetivo. Metade dos cancelamentos aconteceu em boletos não pagos. Sugiro reduzir o prazo do boleto de 3 para 2 dias.",
+        "meta": "Taxa de perda calculada na hora, sem relatório"
+      },
+      {
+        "question": "Quais são os 10 carrinhos abandonados com maior valor? Quero nome, e-mail e os produtos de cada um.",
+        "answer": "Os 10 carrinhos somam R$ 9.870. O maior, de R$ 2.340, parou na etapa de pagamento ontem à noite. Listei os itens e o contato de cada cliente para o disparo de recuperação.",
+        "meta": "Dados dos carrinhos direto da API, em segundos"
+      }
+    ]
+  },
+  "chat_visual": {
+    "eyebrow": "Edição visual",
+    "title": "Mude a loja conversando com o agente de código",
+    "subtitle": "A frente de loja é código aberto com documentação feita para máquinas. Você pede a mudança em português, vê o preview e publica quando quiser.",
+    "bullets": [
+      "Preview em tempo real, no desktop e no celular",
+      "Toda alteração versionada no GitHub, reversível com um clique",
+      "O agente entende cada componente e regra do seu projeto"
+    ],
+    "chat_title": "Editando a frente de loja com IA",
+    "author": "Agente de código",
+    "chats": [
+      {
+        "question": "Retire o degradê desse botão no hero e deixe apenas branco.",
+        "answer": "Feito: o botão agora é branco sólido, com hover em lilás bem claro. O preview já está atualizado e o commit fica pronto para você publicar.",
+        "meta": "Storefront em código aberto, editado em português"
+      },
+      {
+        "question": "Use no cabeçalho a versão branca do logo, igual ao rodapé do site.",
+        "answer": "Troquei o logo do cabeçalho pelo SVG branco, inline, para não pesar o carregamento. Ficou alinhado à esquerda com o selo de ambiente seguro à direita.",
+        "meta": "Mudança versionada no GitHub, com preview antes de publicar"
+      },
+      {
+        "question": "Esses três cards estão dois em cima e um embaixo em telas grandes. Coloque os três na mesma linha.",
+        "answer": "Ajustei a grade para três colunas a partir de 768px. No celular eles continuam empilhados. Quer ver o preview em mobile e desktop?",
+        "meta": "Layout responsivo ajustado por comando"
+      },
+      {
+        "question": "Esconda a calculadora de frete e as opções de pagamento do bloco de produto. É um produto digital.",
+        "answer": "Ocultei a calculadora de frete, o cálculo de parcelas e a galeria de fotos nesse bloco. O botão de compra continua levando direto ao checkout.",
+        "meta": "Cada componente da loja é um arquivo que a IA entende"
+      },
+      {
+        "question": "Aplique a identidade do nosso site: paleta roxa, fonte Urbanist e degradê roxo no hero como no rodapé.",
+        "answer": "Apliquei os tokens do site: primária #871395, secundária #37003c, Urbanist no texto e Fira Sans nos títulos. O hero ganhou o mesmo degradê do rodapé.",
+        "meta": "Identidade visual replicada a partir do site institucional"
       }
     ]
   }

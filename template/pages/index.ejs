@@ -10,8 +10,8 @@ const contacts = _.cms('contacts') || {}
 const hero = landing.hero || {}
 const proof = landing.proof || {}
 const ai = landing.ai || {}
-const chats = Array.isArray(hero.chats) ? hero.chats : []
-const chatLabels = hero.chat_labels || {}
+const chatData = landing.chat_data || {}
+const chatVisual = landing.chat_visual || {}
 const diagram = ai.diagram || {}
 const spin = landing.spin || {}
 const comparison = landing.comparison || {}
@@ -71,55 +71,24 @@ if (landing.product_id) {
         </span>
       </div>
 
-      <div class="lp__hero-grid">
-        <div class="lp__hero-content">
-          <% if (hero.badge) { %>
-            <span class="lp__badge"><%= hero.badge %></span>
-          <% } %>
-          <h1 class="lp__title"><%= hero.title || _.settings.name %></h1>
-          <% if (hero.subtitle) { %>
-            <p class="lp__subtitle"><%= hero.subtitle %></p>
-          <% } %>
-          <a
-            href="#assinar"
-            class="lp__btn lp__btn--contrast lp__btn--lg"
-            data-scroll-to="assinar"
-          >
-            <%= hero.cta || 'Assinar agora' %>
-            <i class="i-chevron-down ml-1"></i>
-          </a>
-          <% if (hero.note) { %>
-            <p class="lp__note"><%= hero.note %></p>
-          <% } %>
-        </div>
-
-        <% if (chats.length) { %>
-          <div class="lp__chat" id="lp-chat" aria-hidden="true">
-            <div class="lp__chat-bar">
-              <span></span><span></span><span></span>
-              <em data-chat-title><%= chats[0].title %></em>
-            </div>
-            <div class="lp__chat-tabs">
-              <% Object.keys(chatLabels).forEach((kind, i) => { %>
-                <button type="button" data-chat-kind="<%= kind %>" class="<%= i === 0 ? 'is-active' : '' %>"><%= chatLabels[kind] %></button>
-              <% }) %>
-            </div>
-            <div class="lp__chat-stage">
-              <% chats.forEach((chat, i) => { %>
-                <div class="lp__chat-item" data-chat-kind="<%= chat.kind %>" data-chat-title="<%= chat.title %>" <%= i === 0 ? '' : 'hidden' %>>
-                  <div class="lp__chat-msg lp__chat-msg--user"><%= chat.question %></div>
-                  <div class="lp__chat-msg lp__chat-msg--ai">
-                    <small><%= chat.kind === 'visual' ? 'Agente de código' : 'Claude · via MCP e‑com.plus' %></small>
-                    <%= chat.answer %>
-                  </div>
-                  <% if (chat.meta) { %>
-                    <div class="lp__chat-meta"><%= chat.meta %></div>
-                  <% } %>
-                </div>
-              <% }) %>
-            </div>
-            <div class="lp__chat-dots" role="presentation"></div>
-          </div>
+      <div class="lp__hero-content">
+        <% if (hero.badge) { %>
+          <span class="lp__badge"><%= hero.badge %></span>
+        <% } %>
+        <h1 class="lp__title"><%= hero.title || _.settings.name %></h1>
+        <% if (hero.subtitle) { %>
+          <p class="lp__subtitle"><%= hero.subtitle %></p>
+        <% } %>
+        <a
+          href="#assinar"
+          class="lp__btn lp__btn--contrast lp__btn--lg"
+          data-scroll-to="assinar"
+        >
+          <%= hero.cta || 'Assinar agora' %>
+          <i class="i-chevron-down ml-1"></i>
+        </a>
+        <% if (hero.note) { %>
+          <p class="lp__note"><%= hero.note %></p>
         <% } %>
       </div>
     </div>
@@ -187,14 +156,6 @@ if (landing.product_id) {
             <% }) %>
           </div>
 
-          <% if (Array.isArray(ai.prompts) && ai.prompts.length) { %>
-            <div class="lp__prompts">
-              <% ai.prompts.forEach(prompt => { %>
-                <blockquote class="lp__prompt"><%= prompt %></blockquote>
-              <% }) %>
-            </div>
-          <% } %>
-
           <% if (Array.isArray(ai.capabilities) && ai.capabilities.length) { %>
             <dl class="lp__caps">
               <% ai.capabilities.forEach(cap => { %>
@@ -208,6 +169,57 @@ if (landing.product_id) {
         </div>
       </section>
     <% } %>
+
+    <%
+    // seções de conversa animada: dados via MCP e edição visual
+    const chatSections = [
+      { key: 'data', data: chatData, reverse: false },
+      { key: 'visual', data: chatVisual, reverse: true }
+    ]
+    for (const { key, data, reverse } of chatSections) {
+      const chats = Array.isArray(data.chats) ? data.chats : []
+      if (!chats.length) continue
+      %>
+      <section class="lp__section lp__convo lp__convo--<%= key %>">
+        <div class="container">
+          <div class="lp__convo-grid <%= reverse ? 'lp__convo-grid--reverse' : '' %>">
+            <div class="lp__convo-text">
+              <% if (data.eyebrow) { %>
+                <span class="lp__eyebrow"><%= data.eyebrow %></span>
+              <% } %>
+              <h2 class="lp__convo-title"><%= data.title %></h2>
+              <% if (data.subtitle) { %>
+                <p class="lp__convo-subtitle"><%= data.subtitle %></p>
+              <% } %>
+              <% if (Array.isArray(data.bullets) && data.bullets.length) { %>
+                <ul class="lp__convo-bullets">
+                  <% data.bullets.forEach(b => { %>
+                    <li><i class="i-check-circle"></i><%= b %></li>
+                  <% }) %>
+                </ul>
+              <% } %>
+            </div>
+
+            <div class="lp__chat" data-chats="<%= JSON.stringify(chats) %>" aria-hidden="true">
+              <div class="lp__chat-bar">
+                <span></span><span></span><span></span>
+                <em><%= data.chat_title || '' %></em>
+              </div>
+              <div class="lp__chat-stage">
+                <div class="lp__chat-msg lp__chat-msg--user" data-chat-user><%= chats[0].question %></div>
+                <div class="lp__chat-msg lp__chat-msg--ai" data-chat-ai>
+                  <small><%= data.author || 'IA' %></small>
+                  <span data-chat-answer><%= chats[0].answer %></span>
+                </div>
+                <div class="lp__chat-meta" data-chat-meta><%= chats[0].meta || '' %></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <%
+    }
+    %>
 
     <% if (Array.isArray(spin.items) && spin.items.length) { %>
       <section class="lp__section lp__spin">
@@ -409,58 +421,100 @@ if (landing.product_id) {
   <script>
     /*<!--*/
     (function () {
-      // hero: alterna os exemplos de conversa (dados via MCP e edição visual)
-      var $chat = document.getElementById('lp-chat')
-      if ($chat) {
-        var $items = Array.prototype.slice.call($chat.querySelectorAll('.lp__chat-item'))
-        var $tabs = Array.prototype.slice.call($chat.querySelectorAll('.lp__chat-tabs button'))
-        var $title = $chat.querySelector('[data-chat-title]')
-        var $dots = $chat.querySelector('.lp__chat-dots')
-        var kind = $tabs.length ? $tabs[0].getAttribute('data-chat-kind') : null
+      // conversas de exemplo: pergunta digitada, indicador e resposta palavra a palavra
+      var setupChat = function ($chat) {
+        var chats = []
+        try { chats = JSON.parse($chat.getAttribute('data-chats')) } catch (e) {}
+        var $user = $chat.querySelector('[data-chat-user]')
+        var $ai = $chat.querySelector('[data-chat-ai]')
+        var $answer = $chat.querySelector('[data-chat-answer]')
+        var $meta = $chat.querySelector('[data-chat-meta]')
+        if (!chats.length || !$user || !$ai || !$answer) return
         var index = 0
-        var timer
-        var kindItems = function () {
-          return kind ? $items.filter(function ($el) { return $el.getAttribute('data-chat-kind') === kind }) : $items
+        var started = false
+        var wait = function (ms) {
+          return new Promise(function (resolve) { setTimeout(resolve, ms) })
         }
-        var render = function () {
-          var list = kindItems()
-          if (!list.length) return
-          index = index % list.length
-          $items.forEach(function ($el) { $el.hidden = true })
-          var $current = list[index]
-          $current.hidden = false
-          $current.classList.remove('is-in')
-          void $current.offsetWidth
-          $current.classList.add('is-in')
-          if ($title) $title.textContent = $current.getAttribute('data-chat-title')
-          if ($dots) {
-            $dots.innerHTML = ''
-            list.forEach(function (_, i) {
-              var $dot = document.createElement('button')
-              $dot.type = 'button'
-              $dot.className = i === index ? 'is-active' : ''
-              $dot.setAttribute('aria-label', 'Exemplo ' + (i + 1))
-              $dot.addEventListener('click', function () { index = i; render(); schedule() })
-              $dots.appendChild($dot)
-            })
-          }
-        }
-        var schedule = function () {
-          clearInterval(timer)
-          timer = setInterval(function () { index++; render() }, 7000)
-        }
-        $tabs.forEach(function ($tab) {
-          $tab.addEventListener('click', function () {
-            kind = $tab.getAttribute('data-chat-kind')
-            index = 0
-            $tabs.forEach(function ($t) { $t.classList.toggle('is-active', $t === $tab) })
-            render()
-            schedule()
+        var typeText = function ($el, text, msPerChar) {
+          $el.textContent = ''
+          $el.classList.add('is-typing')
+          var i = 0
+          return new Promise(function (resolve) {
+            var tick = function () {
+              i++
+              $el.textContent = text.slice(0, i)
+              if (i < text.length) {
+                setTimeout(tick, msPerChar + Math.random() * 25)
+              } else {
+                $el.classList.remove('is-typing')
+                resolve()
+              }
+            }
+            tick()
           })
-        })
-        render()
-        schedule()
+        }
+        var streamWords = function ($el, text, msPerWord) {
+          var words = text.split(' ')
+          var i = 0
+          $el.textContent = ''
+          return new Promise(function (resolve) {
+            var tick = function () {
+              i++
+              $el.textContent = words.slice(0, i).join(' ')
+              if (i < words.length) {
+                setTimeout(tick, msPerWord + Math.random() * 40)
+              } else {
+                resolve()
+              }
+            }
+            tick()
+          })
+        }
+        var play = function () {
+          var chat = chats[index % chats.length]
+          $ai.hidden = true
+          $ai.classList.remove('is-thinking')
+          $meta.hidden = true
+          $meta.textContent = chat.meta || ''
+          typeText($user, chat.question, 28)
+            .then(function () { return wait(500) })
+            .then(function () {
+              $answer.textContent = ''
+              $ai.hidden = false
+              $ai.classList.add('is-thinking')
+              return wait(1100)
+            })
+            .then(function () {
+              $ai.classList.remove('is-thinking')
+              return streamWords($answer, chat.answer, 55)
+            })
+            .then(function () {
+              $meta.hidden = false
+              return wait(6000)
+            })
+            .then(function () {
+              index++
+              play()
+            })
+        }
+        var start = function () {
+          if (started) return
+          started = true
+          play()
+        }
+        if ('IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(function (entries) {
+            if (entries.some(function (entry) { return entry.isIntersecting })) {
+              observer.disconnect()
+              start()
+            }
+          }, { threshold: .35 })
+          observer.observe($chat)
+        } else {
+          start()
+        }
       }
+      Array.prototype.forEach.call(document.querySelectorAll('.lp__chat[data-chats]'), setupChat)
       // rolagem suave para as âncoras da página
       document.addEventListener('click', function (ev) {
         var $link = ev.target.closest && ev.target.closest('[data-scroll-to]')

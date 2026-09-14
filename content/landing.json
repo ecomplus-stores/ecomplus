@@ -1,9 +1,9 @@
 {
   "product_id": "6aa448e0568e83312533aa1d",
   "hero": {
-    "badge": "Plataforma de e-commerce headless, feita para a operação brasileira",
-    "title": "Sua loja cresceu. Sua plataforma acompanhou?",
-    "subtitle": "A e‑com.plus é uma plataforma headless e API-first para lojas que já venderam o suficiente para sentir os limites de plataformas de entrada como wBuy, Nuvemshop, Tray ou Loja Integrada: sem comissão sobre o faturamento, checkout próprio e suporte direto com quem desenvolve.",
+    "badge": "Plataforma de e-commerce headless e API-first",
+    "title": "Sua loja pronta para a era dos agentes inteligentes",
+    "subtitle": "Produtos, pedidos e clientes expostos por API em estruturas nativas para modelos de linguagem. Conector MCP para a sua IA, storefront editado por IA e zero comissão sobre o faturamento.",
     "cta": "Assinar agora",
     "note": "Cartão de crédito ou boleto. Sem frete: o acesso chega no seu e-mail."
   },
@@ -11,34 +11,19 @@
     "title": "O que você leva no plano",
     "items": [
       {
-        "icon": "wifi",
-        "title": "Headless e API-first",
-        "text": "Toda a operação exposta por APIs REST documentadas. Use o storefront pronto ou construa a frente de loja que quiser."
-      },
-      {
         "icon": "credit-card",
         "title": "Checkout completo",
-        "text": "Pix, cartão, boleto e parcelamento com os principais gateways do Brasil, sem redirecionar o cliente para fora da loja."
+        "text": "Pix, cartão, boleto e nota fiscal nativos, sem redirecionar o cliente."
       },
       {
         "icon": "store",
         "title": "Apps e integrações",
-        "text": "ERPs, transportadoras, marketplaces e ferramentas de marketing instalados em poucos cliques na loja de aplicativos."
+        "text": "ERPs, transportadoras, marketplaces e marketing em poucos cliques."
       },
       {
         "icon": "stopwatch",
         "title": "Performance de verdade",
-        "text": "Storefront PWA renderizado no servidor e servido por CDN. Páginas leves, boas notas no Lighthouse e melhor conversão."
-      },
-      {
-        "icon": "shield",
-        "title": "Segurança e escala",
-        "text": "Infraestrutura em nuvem gerenciada, backups e monitoramento. A loja aguenta a Black Friday sem você se preocupar."
-      },
-      {
-        "icon": "user",
-        "title": "Suporte de quem faz",
-        "text": "Atendimento direto com o time que desenvolve a plataforma, em português, sem scripts de call center."
+        "text": "Storefront renderizado no servidor e servido por CDN. Aguenta Black Friday."
       }
     ]
   },
@@ -67,12 +52,12 @@
     "title": "Perguntas frequentes",
     "items": [
       {
-        "question": "Por que pedimos um endereço?",
-        "answer": "Nada é enviado pelos correios. O endereço entra apenas no cadastro e na cobrança do plano. Basta informar CEP e número, o restante é preenchido automaticamente."
-      },
-      {
         "question": "Já tenho loja em outra plataforma. Como funciona a migração?",
         "answer": "Depois do pagamento você recebe o acesso e o passo a passo por e-mail. Produtos, clientes e pedidos podem ser importados por planilha ou pela API, e o nosso time técnico acompanha a migração."
+      },
+      {
+        "question": "Preciso saber programar para usar a IA na loja?",
+        "answer": "Não. O conector MCP funciona com a IA que você já usa: você cria um usuário exclusivo para a integração no painel, autentica uma vez e passa a conversar com a loja em português."
       },
       {
         "question": "Quais formas de pagamento são aceitas?",
@@ -112,50 +97,46 @@
   "proof": {
     "items": [
       {
-        "icon": "percent",
         "title": "Zero comissão",
         "text": "Nenhuma taxa sobre o faturamento, com qualquer meio de pagamento."
       },
       {
-        "icon": "credit-card",
-        "title": "Checkout próprio",
-        "text": "Pix, boleto, cartão e nota fiscal nativos, sem app de terceiro."
+        "title": "API-first",
+        "text": "Toda a operação exposta por API REST documentada."
       },
       {
-        "icon": "user",
+        "title": "Conector MCP",
+        "text": "Sua IA opera a loja em dados nativos, sem raspar HTML."
+      },
+      {
         "title": "Suporte técnico direto",
         "text": "Fala com quem desenvolve a plataforma, em todos os planos."
-      },
-      {
-        "icon": "wifi",
-        "title": "API-first",
-        "text": "Toda a operação exposta por API. Integre o que quiser, do jeito que quiser."
       }
     ]
   },
   "spin": {
     "title": "Você reconhece essa história?",
-    "subtitle": "Quem chega na e‑com.plus normalmente já passou por uma plataforma de entrada. O caminho costuma ser o mesmo.",
+    "subtitle": "Quem chega na e‑com.plus normalmente já passou por uma plataforma de entrada.",
     "items": [
       {
         "label": "Situação",
         "title": "A loja está no ar e vendendo",
-        "text": "Você montou a operação em uma plataforma pronta, instalou tema, apps, gateway e transportadoras. Funcionou, e o faturamento subiu."
+        "text": "Plataforma pronta, tema instalado, apps, gateway e transportadoras. Funcionou."
       },
       {
         "label": "Problema",
-        "title": "Mas cada mês cobra mais caro",
-        "text": "Comissão sobre cada pedido, app pago para cupom, brinde ou compre junto, checkout que redireciona, tema igual ao do concorrente e suporte que responde com FAQ."
+        "title": "Cada mês cobra mais caro",
+        "text": "Comissão por pedido, app pago para o básico, tema igual ao do concorrente, suporte que responde com FAQ."
       },
       {
         "label": "Implicação",
-        "title": "O crescimento vira custo e trava",
-        "text": "Quanto mais você vende, mais paga em comissão. Em datas de pico a loja cai ou fica lenta. Personalizar depende de plano superior ou de gambiarra. A margem some e a marca não se diferencia."
+        "title": "O crescimento vira trava",
+        "text": "Quanto mais vende, mais paga. Personalizar depende de plano superior. A margem some e a marca não se diferencia."
       },
       {
         "label": "Solução",
-        "title": "Uma plataforma que escala junto com você",
-        "text": "Na e‑com.plus o custo é o plano, não uma fatia das vendas. O checkout é seu, a frente de loja é sua, a API é aberta e o suporte é com o time técnico. Você cresce sem trocar de plataforma de novo."
+        "title": "Uma plataforma que escala com você e com a IA",
+        "text": "Na e‑com.plus o custo é o plano, não uma fatia das vendas. O checkout é seu, a frente de loja é sua, a API é aberta e qualquer agente de IA opera a loja por MCP. Você cresce sem trocar de plataforma de novo."
       }
     ]
   },
@@ -183,14 +164,14 @@
         "others": "Cada plano define o limite de produtos (200, 500, 1.000 ou 5.000) e de usuários administradores."
       },
       {
+        "label": "IA e agentes",
+        "plus": "API pensada para LLMs e conector MCP: sua IA consulta e opera a loja em dados nativos.",
+        "others": "Sem interface para agentes; a IA precisa raspar o painel ou depender de app de terceiro."
+      },
+      {
         "label": "Aplicativos e recursos",
         "plus": "Cupons, compre junto, brindes, fidelidade, avaliações e e-mail marketing nativos na plataforma.",
         "others": "Boa parte dos recursos vem de um marketplace com mais de 200 apps, muitos pagos à parte, e temas premium vendidos separadamente."
-      },
-      {
-        "label": "Suporte técnico",
-        "plus": "Direto com a equipe técnica da plataforma, com SLA superior garantido em todos os planos.",
-        "others": "Chat de segunda a sábado; WhatsApp e SLA de 2 horas só a partir do plano Elite."
       },
       {
         "label": "Personalização",
@@ -208,14 +189,149 @@
         "others": "Rastreamento Google e Facebook padrão da plataforma; ajustes finos dependem de app ou de tema."
       },
       {
-        "label": "SEO",
-        "plus": "Estrutura SEO avançada, URLs amigáveis, controle de metadados e bom desempenho.",
-        "others": "SEO nativo e blog integrado, dentro do que o tema escolhido permite."
-      },
-      {
         "label": "Performance e estabilidade",
         "plus": "Arquitetura serverless com CDN e Web Vitals otimizados, estável mesmo em grandes picos de acesso.",
         "others": "Hospedagem AWS com escalabilidade sob demanda, dentro dos limites do plano contratado."
+      }
+    ]
+  },
+  "ai": {
+    "title": "Inteligência artificial direto na sua operação",
+    "subtitle": "A maioria das plataformas foi feita para gente clicar em painel. A e‑com.plus foi feita para ser lida por máquinas: cada recurso é uma API com parâmetros pensados para LLMs.",
+    "diagram": {
+      "left": "Sua IA: Claude, Gemini ou o agente que você usar",
+      "middle": "MCP",
+      "right": "API e‑com.plus",
+      "items": [
+        "Pedidos",
+        "Produtos",
+        "Clientes",
+        "Relatórios"
+      ]
+    },
+    "features": [
+      {
+        "title": "Pergunte, não exporte",
+        "text": "Conecte a IA que você já usa à loja e converse com ela em português. Ela consulta a API em tempo real e devolve a análise pronta."
+      },
+      {
+        "title": "Dados no formato da IA",
+        "text": "Parâmetros nativos como ?from-ai, ?concise e ?count entregam só o que o modelo precisa: menos tokens, menos erro, mais velocidade."
+      },
+      {
+        "title": "Storefront editado por IA",
+        "text": "A frente de loja é código aberto com documentação para máquinas. Peça a mudança em português e veja o preview antes de publicar."
+      }
+    ]
+  },
+  "chat_data": {
+    "eyebrow": "Dados da loja",
+    "title": "Toda a operação, a uma pergunta de distância",
+    "subtitle": "Com o conector MCP, sua IA de preferência consulta pedidos, produtos e clientes em tempo real pela API e produz todo tipo de relatório que quiser. Sem exportar planilha, sem abrir painel.",
+    "bullets": [
+      "Cruza vendas, estoque e clientes em segundos",
+      "Age no momento certo, não no relatório da semana que vem",
+      "Acesso direto à API: nenhum arquivo, nenhum upload"
+    ],
+    "author": "Sua IA · via MCP e‑com.plus",
+    "chats": [
+      {
+        "question": "Quais pedidos pagos há mais de 5 dias ainda estão sem rastreio?",
+        "answer": "7 pedidos. O mais antigo é o #48213, pago há 9 dias. Quer que eu avise o fulfillment?",
+        "meta": "Consulta em tempo real pela API"
+      },
+      {
+        "question": "Cruza os 20 mais vendidos de junho com o estoque. Quais têm menos de 10 unidades?",
+        "answer": "Cinco produtos. O Kit Verão tem 4 unidades e vende 3 por dia. Monto a lista de reposição?",
+        "meta": "Vendas e estoque cruzados na hora"
+      },
+      {
+        "question": "Nos pedidos pagos dos últimos 3 meses, quais pares de produtos aparecem juntos com mais frequência?",
+        "answer": "Sérum + hidratante lideram, em 18% dos pedidos. Sugiro um kit com 10% off e compre-junto na página de cada um.",
+        "meta": "Base para kits e compre-junto"
+      },
+      {
+        "question": "Quais dos 30 maiores clientes de 2024 não compram há 90 dias?",
+        "answer": "Onze clientes, R$ 38 mil em compras no ano passado. Preparei nome, e-mail e última compra para a reativação.",
+        "meta": "Clientes VIP prontos para a régua de retenção"
+      },
+      {
+        "question": "Quem comprou em março, abril e maio mas não fez pedido em junho?",
+        "answer": "23 clientes de ciclo mensal quebraram a sequência. Separei a lista com o produto que cada um costuma repor.",
+        "meta": "Sinal de churn antes do relatório do mês"
+      },
+      {
+        "question": "Quanto perdi em maio com cancelamentos e estornos?",
+        "answer": "R$ 12.480 em 43 pedidos, 4,1% do faturamento. Metade foi boleto não pago: vale encurtar o prazo.",
+        "meta": "Taxa de perda sem relatório nem planilha"
+      },
+      {
+        "question": "Compara o faturamento semana a semana de maio e junho.",
+        "answer": "Junho fechou 9% acima. A única queda foi na 2ª semana, quando o frete grátis saiu do ar por dois dias.",
+        "meta": "Sazonalidade explicada com dados da própria loja"
+      },
+      {
+        "question": "Quais são os 10 carrinhos abandonados de maior valor?",
+        "answer": "Somam R$ 9.870. O maior, de R$ 2.340, parou no pagamento ontem. Listei itens e contatos para a recuperação.",
+        "meta": "Dados dos carrinhos direto da API"
+      }
+    ]
+  },
+  "chat_visual": {
+    "eyebrow": "Edição visual",
+    "title": "Mude a loja conversando com o agente de código",
+    "subtitle": "A frente de loja é código aberto com documentação feita para máquinas. Você pede a mudança em português, vê o preview e publica quando quiser.",
+    "bullets": [
+      "Preview em tempo real, no desktop e no celular",
+      "Toda alteração versionada no GitHub, reversível com um clique",
+      "O agente entende cada componente e regra do seu projeto"
+    ],
+    "author": "Agente de código",
+    "chats": [
+      {
+        "question": "Na busca rápida, deixe as setas do carrossel sempre visíveis e mostre o total de resultados ao lado de \"Ver todos\".",
+        "answer": "Setas fixas e contador \"24 resultados\" no cabeçalho da busca. Preview pronto para você conferir.",
+        "meta": "Ajuste no componente de busca, versionado no GitHub"
+      },
+      {
+        "question": "Na home, transforme os cards de categoria numa grade compacta só com foto e nome, para dar destaque às vitrines.",
+        "answer": "Grade de 4 colunas com foto e nome, descrição abaixo do título. As vitrines de produtos ficaram em evidência.",
+        "meta": "Seção da home reorganizada por comando"
+      },
+      {
+        "question": "Centralize o bloco \"API\" no diagrama, está um pouco para a direita, e deixe as setas bidirecionais.",
+        "answer": "Colunas simétricas puseram o bloco no centro exato da página e as setas agora apontam para os dois lados.",
+        "meta": "Pedido feito enquanto editávamos esta página"
+      },
+      {
+        "question": "Na página de produto, mostre as medidas como botões de escolha, com o rótulo \"Escolha o tamanho\".",
+        "answer": "Medidas viraram botões com o selecionado em destaque. Fica claro que é só clicar na que o cliente quer.",
+        "meta": "Seletor de variações ajustado no componente de produto"
+      },
+      {
+        "question": "A tabela comparativa não ficou boa no celular por causa da rolagem horizontal. Se não houver alternativa, esconda em telas pequenas.",
+        "answer": "Em telas pequenas ela vira um card por critério, com a coluna da e-com.plus em destaque. Nada rola na horizontal.",
+        "meta": "Alternativa responsiva em vez de esconder"
+      },
+      {
+        "question": "No checkout, resuma a retirada na loja: \"Retire grátis na loja\", bairro e prazo, com link para endereço e horários.",
+        "answer": "Opção em três linhas e link \"Ver endereço e horários\". O checkout ficou mais limpo.",
+        "meta": "Texto do checkout ajustado em um pedido"
+      },
+      {
+        "question": "A letra \"g\" está cortada embaixo nos títulos. Acho que precisa de mais espaçamento.",
+        "answer": "O degradê do título é recortado no texto e comia os descendentes. Dei folga inferior e o \"g\" voltou inteiro.",
+        "meta": "Detalhe tipográfico resolvido na hora"
+      },
+      {
+        "question": "Loja de atacado: preço e compra só para revendedor aprovado, CTA de cadastro para os demais e mínimo de R$ 300 no carrinho.",
+        "answer": "Visitante vê o catálogo com \"Cadastre-se como revendedor\"; aprovado vê preço. O carrinho mostra quanto falta para R$ 300.",
+        "meta": "Regra B2B aplicada no storefront e validada no checkout"
+      },
+      {
+        "question": "O bloco de conversa muda de altura a cada resposta. Deixe fixo para ter mais estabilidade visual.",
+        "answer": "Todas as conversas ficam renderizadas invisíveis na mesma célula, então o bloco mantém sempre a altura da maior.",
+        "meta": "Este mesmo bloco, ajustado por comando"
       }
     ]
   }

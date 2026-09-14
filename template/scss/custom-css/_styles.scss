@@ -294,16 +294,37 @@
     color: rgba(255, 255, 255, .6);
     font-size: .8rem;
 
-    > span {
-      width: .6rem;
-      height: .6rem;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, .25);
+    > em {
+      margin-left: .25rem;
+      font-style: normal;
+    }
+  }
+
+  // anel de progresso: preenche durante a pausa após a resposta
+  &__chat-ring {
+    width: .9rem;
+    height: .9rem;
+    transform: rotate(-90deg);
+    flex-shrink: 0;
+
+    circle {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-opacity: .25;
     }
 
-    > em {
-      margin-left: .5rem;
-      font-style: normal;
+    [data-chat-ring] {
+      stroke-opacity: 1;
+      stroke-linecap: round;
+      stroke-dasharray: 37.7;
+      stroke-dashoffset: 37.7;
+      transition: none;
+
+      &.is-counting {
+        stroke-dashoffset: 0;
+        transition: stroke-dashoffset 6s linear;
+      }
     }
   }
 
@@ -343,8 +364,17 @@
     text-align: center;
   }
 
+  // palco: fantasmas e conversa ao vivo na mesma célula, altura da maior
   &__chat-stage {
-    min-height: 15rem;
+    display: grid;
+
+    > * {
+      grid-area: 1 / 1;
+    }
+  }
+
+  &__chat-ghost {
+    visibility: hidden;
   }
 
   // cursor enquanto a pergunta é digitada

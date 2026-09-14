@@ -192,16 +192,32 @@ if (landing.product_id) {
 
             <div class="lp__chat" data-chats="<%= JSON.stringify(chats) %>" aria-hidden="true">
               <div class="lp__chat-bar">
-                <span></span><span></span><span></span>
+                <svg class="lp__chat-ring" viewBox="0 0 16 16" aria-hidden="true">
+                  <circle cx="8" cy="8" r="6" />
+                  <circle cx="8" cy="8" r="6" data-chat-ring />
+                </svg>
                 <em><%= data.chat_title || '' %></em>
               </div>
               <div class="lp__chat-stage">
+                <%# fantasmas: todas as conversas invisíveis, para a altura ser sempre a da maior %>
+                <% chats.forEach(chat => { %>
+                  <div class="lp__chat-ghost" aria-hidden="true">
+                    <div class="lp__chat-msg lp__chat-msg--user"><%= chat.question %></div>
+                    <div class="lp__chat-msg lp__chat-msg--ai">
+                      <small><%= data.author || 'IA' %></small>
+                      <span><%= chat.answer %></span>
+                    </div>
+                    <div class="lp__chat-meta"><%= chat.meta || '&nbsp;' %></div>
+                  </div>
+                <% }) %>
+                <div class="lp__chat-live">
                 <div class="lp__chat-msg lp__chat-msg--user" data-chat-user><%= chats[0].question %></div>
                 <div class="lp__chat-msg lp__chat-msg--ai" data-chat-ai>
                   <small><%= data.author || 'IA' %></small>
                   <span data-chat-answer><%= chats[0].answer %></span>
                 </div>
                 <div class="lp__chat-meta" data-chat-meta><%= chats[0].meta || '' %></div>
+                </div>
               </div>
             </div>
           </div>
@@ -419,6 +435,7 @@ if (landing.product_id) {
         var $ai = $chat.querySelector('[data-chat-ai]')
         var $answer = $chat.querySelector('[data-chat-answer]')
         var $meta = $chat.querySelector('[data-chat-meta]')
+        var $ring = $chat.querySelector('[data-chat-ring]')
         if (!chats.length || !$user || !$ai || !$answer) return
         var index = 0
         var started = false
@@ -480,9 +497,12 @@ if (landing.product_id) {
             })
             .then(function () {
               $meta.hidden = false
+              // anel preenche durante a pausa e completa na troca de conversa
+              if ($ring) $ring.classList.add('is-counting')
               return wait(6000)
             })
             .then(function () {
+              if ($ring) $ring.classList.remove('is-counting')
               index++
               play()
             })

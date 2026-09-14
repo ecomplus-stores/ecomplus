@@ -233,33 +233,32 @@
       "Age no momento certo, não no relatório da semana que vem",
       "Acesso direto à API: nenhum arquivo, nenhum upload"
     ],
-    "chat_title": "Claude conectado à sua loja",
     "author": "Claude · via MCP e‑com.plus",
     "chats": [
       {
-        "question": "Liste os pedidos pagos há mais de 5 dias que ainda não têm código de rastreio, do mais antigo para o mais novo.",
-        "answer": "Encontrei 7 pedidos. O mais antigo é o #48213, pago há 9 dias. Três são do mesmo cliente VIP. Quer que eu marque como prioridade e avise o fulfillment?",
-        "meta": "Consulta em tempo real pela API, sem exportar planilha"
+        "question": "Quais pedidos pagos há mais de 5 dias ainda estão sem rastreio?",
+        "answer": "7 pedidos. O mais antigo é o #48213, pago há 9 dias. Quer que eu avise o fulfillment?",
+        "meta": "Consulta em tempo real pela API"
       },
       {
-        "question": "Cruza os 20 produtos mais vendidos em junho com o estoque atual. Quais têm menos de 10 unidades?",
-        "answer": "Cinco produtos estão abaixo de 10 unidades. O pior caso é o Kit Verão: 4 em estoque, vende 3 por dia. Isso dá pouco mais de um dia de cobertura. Quer que eu monte a lista de reposição?",
-        "meta": "Estoque crítico cruzado com o relatório de vendas"
+        "question": "Cruza os 20 mais vendidos de junho com o estoque. Quais têm menos de 10 unidades?",
+        "answer": "Cinco produtos. O Kit Verão tem 4 unidades e vende 3 por dia. Monto a lista de reposição?",
+        "meta": "Vendas e estoque cruzados na hora"
       },
       {
-        "question": "Pega os 30 clientes que mais compraram em 2024 e verifica quais não fizeram pedido nos últimos 90 dias.",
-        "answer": "Onze dos 30 sumiram. Juntos, eles faturaram R$ 38 mil no ano passado. Preparei nome, e-mail e data da última compra de cada um para uma campanha de reativação.",
-        "meta": "Clientes VIP inativos, prontos para a régua de retenção"
+        "question": "Quais dos 30 maiores clientes de 2024 não compram há 90 dias?",
+        "answer": "Onze clientes, R$ 38 mil em compras no ano passado. Preparei nome, e-mail e última compra para a reativação.",
+        "meta": "Clientes VIP prontos para a régua de retenção"
       },
       {
-        "question": "Em maio, quanto deixei de faturar com pedidos cancelados, estornados ou reembolsados?",
-        "answer": "R$ 12.480 em 43 pedidos, 4,1% do faturamento efetivo. Metade dos cancelamentos aconteceu em boletos não pagos. Sugiro reduzir o prazo do boleto de 3 para 2 dias.",
-        "meta": "Taxa de perda calculada na hora, sem relatório"
+        "question": "Quanto perdi em maio com cancelamentos e estornos?",
+        "answer": "R$ 12.480 em 43 pedidos, 4,1% do faturamento. Metade foi boleto não pago: vale encurtar o prazo.",
+        "meta": "Taxa de perda sem relatório nem planilha"
       },
       {
-        "question": "Quais são os 10 carrinhos abandonados com maior valor? Quero nome, e-mail e os produtos de cada um.",
-        "answer": "Os 10 carrinhos somam R$ 9.870. O maior, de R$ 2.340, parou na etapa de pagamento ontem à noite. Listei os itens e o contato de cada cliente para o disparo de recuperação.",
-        "meta": "Dados dos carrinhos direto da API, em segundos"
+        "question": "Quais são os 10 carrinhos abandonados de maior valor?",
+        "answer": "Somam R$ 9.870. O maior, de R$ 2.340, parou no pagamento ontem. Listei itens e contatos para a recuperação.",
+        "meta": "Dados dos carrinhos direto da API"
       }
     ]
   },
@@ -272,33 +271,32 @@
       "Toda alteração versionada no GitHub, reversível com um clique",
       "O agente entende cada componente e regra do seu projeto"
     ],
-    "chat_title": "Editando a frente de loja com IA",
     "author": "Agente de código",
     "chats": [
       {
-        "question": "A busca rápida mostra só 4 produtos, mas achou 24, e as setas do carrossel só aparecem no hover. O botão \"Adicionar ao carrinho\" do quarto card está cortado na lateral.",
-        "answer": "Setas do carrossel agora ficam visíveis por padrão e o cabeçalho mostra \"24 resultados\" ao lado de \"Ver todos\". Ajustei a largura dos cards para o botão do quarto produto não cortar mais.",
-        "meta": "Pedido real de revisão de loja, resolvido no componente de busca"
+        "question": "Na busca rápida, deixe as setas do carrossel sempre visíveis e mostre o total de resultados ao lado de \"Ver todos\".",
+        "answer": "Setas fixas e contador \"24 resultados\" no cabeçalho da busca. Preview pronto para você conferir.",
+        "meta": "Ajuste no componente de busca, versionado no GitHub"
       },
       {
-        "question": "Os cards de categoria da home estão enormes e poluindo a página. Troque por uma grade compacta usando toda a largura, só com foto e nome da categoria.",
-        "answer": "Substituí os 3 cards grandes mais 1 solto por uma grade de 4 colunas com foto e nome. A descrição saiu da arte e foi para baixo do título, e as vitrines de produtos voltaram a ser o destaque.",
+        "question": "Na home, transforme os cards de categoria numa grade compacta só com foto e nome, para dar destaque às vitrines.",
+        "answer": "Grade de 4 colunas com foto e nome, descrição abaixo do título. As vitrines de produtos ficaram em evidência.",
         "meta": "Seção da home reorganizada por comando"
       },
       {
-        "question": "Na página de produto, o cliente não percebe que as medidas são clicáveis. Parece uma tabela técnica. Faça parecer botões de escolha.",
-        "answer": "Transformei a tabela de medidas em botões com borda, estado selecionado em destaque e o rótulo \"Escolha o tamanho\" acima. Fica claro que é só clicar na medida que ele quer.",
+        "question": "Na página de produto, mostre as medidas como botões de escolha, com o rótulo \"Escolha o tamanho\".",
+        "answer": "Medidas viraram botões com o selecionado em destaque. Fica claro que é só clicar na que o cliente quer.",
         "meta": "Seletor de variações ajustado no componente de produto"
       },
       {
-        "question": "No checkout, a retirada na loja está mostrando o código {\"en_us\": \"Pick up today\"} e vem carregada de endereço, horário e regras. Resuma para \"Retire grátis na loja\" com um link para ver endereço e horários.",
-        "answer": "Corrigi a tradução, que agora aparece como \"Retire hoje\". A opção ficou em três linhas: \"Retire grátis na loja\", bairro e cidade, e \"disponível em cerca de 30 minutos\", com o link \"Ver endereço e horários\".",
-        "meta": "Texto e i18n do checkout corrigidos em um pedido"
+        "question": "No checkout, resuma a retirada na loja: \"Retire grátis na loja\", bairro e prazo, com link para endereço e horários.",
+        "answer": "Opção em três linhas e link \"Ver endereço e horários\". O checkout ficou mais limpo.",
+        "meta": "Texto do checkout ajustado em um pedido"
       },
       {
-        "question": "Loja de atacado: esconda preço e botão de compra de quem não está logado e aprovado, com um CTA \"Cadastre-se como revendedor\". No carrinho, mostre quanto falta para o mínimo de R$ 300.",
-        "answer": "Preço e compra agora só aparecem para cliente aprovado; visitante vê o catálogo com o CTA de cadastro. A sidebar do carrinho ganhou a barra \"faltam R$ X para o mínimo de R$ 300\" e o botão de finalizar fica bloqueado até lá.",
-        "meta": "Regra de negócio B2B aplicada no storefront e validada no checkout"
+        "question": "Loja de atacado: preço e compra só para revendedor aprovado, CTA de cadastro para os demais e mínimo de R$ 300 no carrinho.",
+        "answer": "Visitante vê o catálogo com \"Cadastre-se como revendedor\"; aprovado vê preço. O carrinho mostra quanto falta para R$ 300.",
+        "meta": "Regra B2B aplicada no storefront e validada no checkout"
       }
     ]
   }

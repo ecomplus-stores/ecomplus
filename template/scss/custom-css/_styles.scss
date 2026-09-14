@@ -63,18 +63,18 @@
   }
 
   &__section {
-    padding: 2.5rem 0;
+    padding: 3.5rem 0;
 
     @media (min-width: 768px) {
-      padding: 3.5rem 0;
+      padding: 5rem 0;
     }
 
     @media (min-width: 1024px) {
-      padding: 4rem 0;
+      padding: 6rem 0;
     }
 
     @media (min-width: 1280px) {
-      padding: 5rem 0;
+      padding: 7rem 0;
     }
   }
 
@@ -88,7 +88,7 @@
     line-height: 1;
     text-align: center;
     font-size: 3rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     color: transparent;
     background: linear-gradient(to top left, var(--ec-900), var(--ec-950));
     -webkit-background-clip: text;
@@ -105,11 +105,11 @@
 
   &__section-subtitle {
     text-align: center;
-    max-width: 44rem;
-    margin: -1rem auto 2.5rem;
+    max-width: 40rem;
+    margin: -1rem auto 3.5rem;
     color: var(--ec-base-600);
     font-size: 1.125rem;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   // Botões (.ui-btn, .ui-btn-primary, .ui-btn-contrast, .ui-btn-lg)
@@ -169,10 +169,14 @@
   &__hero {
     color: #fff;
     background: linear-gradient(to bottom right, var(--ec-950), var(--ec-990));
-    padding: 1.25rem 0 4.5rem;
+    padding: 1.5rem 0 6.5rem;
 
-    @media (min-width: 1024px) {
-      padding-bottom: 6rem;
+    @media (min-width: 768px) {
+      padding: 2rem 0 8rem;
+    }
+
+    @media (min-width: 1280px) {
+      padding-bottom: 9.5rem;
     }
   }
 
@@ -181,10 +185,14 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 
-    @media (min-width: 1024px) {
-      margin-bottom: 4.5rem;
+    @media (min-width: 768px) {
+      margin-bottom: 5.5rem;
+    }
+
+    @media (min-width: 1280px) {
+      margin-bottom: 7rem;
     }
   }
 
@@ -209,7 +217,59 @@
   }
 
   &__hero-content {
-    max-width: 46rem;
+    max-width: 44rem;
+  }
+
+  // .ui-badge-pill sobre fundo roxo
+  &__badge {
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: 600;
+    line-height: 1.6;
+    padding: .125rem .75rem;
+    border-radius: 9999px;
+    color: var(--ec-100);
+    background: rgba(253, 243, 255, .08);
+    border: 1px solid rgba(250, 231, 255, .25);
+    margin-bottom: 2.25rem;
+  }
+
+  &__title {
+    font-family: var(--ec-font-title);
+    font-weight: 500;
+    font-style: italic;
+    text-transform: lowercase;
+    letter-spacing: -.025em;
+    line-height: 1.04;
+    font-size: 3rem;
+    margin-bottom: 1.75rem;
+    color: #fff;
+
+    @media (min-width: 768px) {
+      font-size: 3.75rem;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 4.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, .82);
+    margin-bottom: 2.75rem;
+    max-width: 36rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__note {
+    margin: 1.5rem 0 0;
+    font-size: .9rem;
+    color: rgba(255, 255, 255, .65);
   }
 
   // mock de conversa (dados via MCP e edição visual)
@@ -333,12 +393,16 @@
 
   &__convo-grid {
     display: grid;
-    gap: 2.5rem;
+    gap: 3rem;
     align-items: center;
 
     @media (min-width: 1024px) {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 4rem;
+      gap: 5rem;
+    }
+
+    @media (min-width: 1280px) {
+      gap: 7rem;
     }
 
     &--reverse {
@@ -366,9 +430,9 @@
     font-style: italic;
     text-transform: lowercase;
     letter-spacing: -.025em;
-    line-height: 1;
+    line-height: 1.04;
     font-size: 2.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: transparent;
     background: linear-gradient(to top left, var(--ec-900), var(--ec-950));
     -webkit-background-clip: text;
@@ -381,9 +445,10 @@
 
   &__convo-subtitle {
     font-size: 1.125rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--ec-base-600);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 34rem;
   }
 
   &__convo-bullets {
@@ -396,8 +461,8 @@
       gap: .6rem;
       align-items: flex-start;
       color: var(--ec-base-800);
-      margin-bottom: .6rem;
-      line-height: 1.5;
+      margin-bottom: .9rem;
+      line-height: 1.55;
 
       > i {
         color: var(--ec-success);
@@ -408,17 +473,17 @@
 
   // Faixa de prova (diferenciais curtos)
   &__proof {
-    padding: 0 0 1rem;
-    margin-top: -2.5rem;
+    padding: 0 0 2rem;
+    margin-top: -3.5rem;
 
     .container {
       background: #fff;
       border-radius: var(--ec-radius-lg);
       box-shadow: 0 0 0 1px var(--ec-base-200), 0 12px 32px rgba(55, 0, 60, .1);
-      padding: 1.5rem 1.25rem;
+      padding: 2rem 1.5rem 1.25rem;
 
       @media (min-width: 768px) {
-        padding: 1.75rem 2rem;
+        padding: 2.5rem 2.5rem 2rem;
       }
     }
   }
@@ -426,10 +491,12 @@
   &__proof-item {
     display: flex;
     flex-direction: column;
-    gap: .35rem;
+    gap: .5rem;
     font-size: .95rem;
+    line-height: 1.55;
     color: var(--ec-base-600);
-    padding-left: .9rem;
+    padding-left: 1.1rem;
+    margin-bottom: .75rem;
     border-left: 3px solid var(--ec-200);
 
     > strong {
@@ -445,7 +512,7 @@
     gap: .75rem;
     align-items: center;
     max-width: 60rem;
-    margin: 0 auto 3rem;
+    margin: 0 auto 4.5rem;
     color: var(--ec-800);
 
     @media (min-width: 768px) {
@@ -529,6 +596,7 @@
 
   &__card--ai {
     border-top: 3px solid var(--ec-800);
+    padding: 2rem 1.75rem;
   }
 
   &__prompts {
@@ -569,9 +637,9 @@
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    max-width: 56rem;
+    max-width: 60rem;
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(3, 1fr);
@@ -580,7 +648,7 @@
 
   &__spin-item {
     position: relative;
-    padding: 1.75rem 1.75rem 1.75rem 2rem;
+    padding: 2.25rem 2rem 2.25rem 2.25rem;
     border-radius: var(--ec-radius-lg);
     background: var(--ec-base-50);
     box-shadow: inset 0 0 0 1px var(--ec-base-200);

@@ -276,29 +276,29 @@
     "author": "Agente de código",
     "chats": [
       {
-        "question": "Retire o degradê desse botão no hero e deixe apenas branco.",
-        "answer": "Feito: o botão agora é branco sólido, com hover em lilás bem claro. O preview já está atualizado e o commit fica pronto para você publicar.",
-        "meta": "Storefront em código aberto, editado em português"
+        "question": "A busca rápida mostra só 4 produtos, mas achou 24, e as setas do carrossel só aparecem no hover. O botão \"Adicionar ao carrinho\" do quarto card está cortado na lateral.",
+        "answer": "Setas do carrossel agora ficam visíveis por padrão e o cabeçalho mostra \"24 resultados\" ao lado de \"Ver todos\". Ajustei a largura dos cards para o botão do quarto produto não cortar mais.",
+        "meta": "Pedido real de revisão de loja, resolvido no componente de busca"
       },
       {
-        "question": "Use no cabeçalho a versão branca do logo, igual ao rodapé do site.",
-        "answer": "Troquei o logo do cabeçalho pelo SVG branco, inline, para não pesar o carregamento. Ficou alinhado à esquerda com o selo de ambiente seguro à direita.",
-        "meta": "Mudança versionada no GitHub, com preview antes de publicar"
+        "question": "Os cards de categoria da home estão enormes e poluindo a página. Troque por uma grade compacta usando toda a largura, só com foto e nome da categoria.",
+        "answer": "Substituí os 3 cards grandes mais 1 solto por uma grade de 4 colunas com foto e nome. A descrição saiu da arte e foi para baixo do título, e as vitrines de produtos voltaram a ser o destaque.",
+        "meta": "Seção da home reorganizada por comando"
       },
       {
-        "question": "Esses três cards estão dois em cima e um embaixo em telas grandes. Coloque os três na mesma linha.",
-        "answer": "Ajustei a grade para três colunas a partir de 768px. No celular eles continuam empilhados. Quer ver o preview em mobile e desktop?",
-        "meta": "Layout responsivo ajustado por comando"
+        "question": "Na página de produto, o cliente não percebe que as medidas são clicáveis. Parece uma tabela técnica. Faça parecer botões de escolha.",
+        "answer": "Transformei a tabela de medidas em botões com borda, estado selecionado em destaque e o rótulo \"Escolha o tamanho\" acima. Fica claro que é só clicar na medida que ele quer.",
+        "meta": "Seletor de variações ajustado no componente de produto"
       },
       {
-        "question": "Esconda a calculadora de frete e as opções de pagamento do bloco de produto. É um produto digital.",
-        "answer": "Ocultei a calculadora de frete, o cálculo de parcelas e a galeria de fotos nesse bloco. O botão de compra continua levando direto ao checkout.",
-        "meta": "Cada componente da loja é um arquivo que a IA entende"
+        "question": "No checkout, a retirada na loja está mostrando o código {\"en_us\": \"Pick up today\"} e vem carregada de endereço, horário e regras. Resuma para \"Retire grátis na loja\" com um link para ver endereço e horários.",
+        "answer": "Corrigi a tradução, que agora aparece como \"Retire hoje\". A opção ficou em três linhas: \"Retire grátis na loja\", bairro e cidade, e \"disponível em cerca de 30 minutos\", com o link \"Ver endereço e horários\".",
+        "meta": "Texto e i18n do checkout corrigidos em um pedido"
       },
       {
-        "question": "Aplique a identidade do nosso site: paleta roxa, fonte Urbanist e degradê roxo no hero como no rodapé.",
-        "answer": "Apliquei os tokens do site: primária #871395, secundária #37003c, Urbanist no texto e Fira Sans nos títulos. O hero ganhou o mesmo degradê do rodapé.",
-        "meta": "Identidade visual replicada a partir do site institucional"
+        "question": "Loja de atacado: esconda preço e botão de compra de quem não está logado e aprovado, com um CTA \"Cadastre-se como revendedor\". No carrinho, mostre quanto falta para o mínimo de R$ 300.",
+        "answer": "Preço e compra agora só aparecem para cliente aprovado; visitante vê o catálogo com o CTA de cadastro. A sidebar do carrinho ganhou a barra \"faltam R$ X para o mínimo de R$ 300\" e o botão de finalizar fica bloqueado até lá.",
+        "meta": "Regra de negócio B2B aplicada no storefront e validada no checkout"
       }
     ]
   }
